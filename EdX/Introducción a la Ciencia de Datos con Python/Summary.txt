@@ -1,0 +1,51 @@
+Vid 1.1
+
+La ciencia de datos o conocida comúnmente como Data Science es una ciencia multidisciplinaria que involucra conocimientos de matemáticas, estadística y ciencias de la computación.
+
+La persona que aplica la Data Science es conocida como científico de datos. El científico de datos utiliza diversas herramientas a su alcance, así como análisis estadísticos de datos, modelos predictivos y visualización de datos, para poder encaminar de manera efectiva la toma de decisiones.
+
+Vid 1.2
+
+Entre las principales actividades para un científico de datos se encuentra la creación de modelos predictivos y la visualización de datos. Nosotros como científicos de datos utilizaremos el software Python, el cual nos permite leer datos y crear a partir de ellos modelos predictivos y gráficas de gran calidad.
+
+Python se ha convertido en un lenguaje de programación masivo en el cual se puede hacer casi cualquier proyecto de software. Además, Python cuenta con una gran comunidad que la respalda que se especializa en crear y compartir su propio software especializado con el mundo.
+
+Para nuestro curso no es necesario que aprendas todos los detalles de este lenguaje, pero eventualmente te irás familiarizando con sus funciones más comunes.
+
+Vid 1.3
+
+Instalacion de Anaconda
+
+---------------------------------------------------------
+
+Week 2
+
+La librería Pandas te permitirá utilizar funciones específicas para manipular estructuras de datos que se presentan de manera tabular, estas estructuras toman el nombre de data frames. Los data frames son estructuras de datos de dos dimensiones que pueden contener datos de diferentes tipos. Esta estructura es la más usada para realizar análisis de datos.
+
+Links:
+https://jarroba.com/pandas-python-ejemplos-parte-i-introduccion/
+http://pandas.pydata.org/pandas-docs/stable/reference/frame.html
+
+Lo que es una serie de tiempo en realidad es una extracción de una columna
+de un conjunto de datos, pero puede servir para representar cosas a través
+del tiempo.
+
+Una serie de tiempo es el conjunto de datos estadísticos observados y recopilados durante intervalos regulares de tiempo. La información puede ser registrada de forma diaria, semanal, semestral o en un intervalo definido previamente por el investigador. En esta libreta aprenderás a trabajar con series de tiempo utilizando la librería Pandas.
+
+Una serie de tiempo es una secuencia de datos, observaciones o valores, medidos en determinados momentos y ordenados cronológicamente
+
+El Web Scraping es una técnica utilizada para extraer información de los sitios web de forma automatizada. En este curso utilizaremos Python para realizar el proceso de Web Scraping para posteriormente estructurar, almacenar y analizar los datos extraídos.
+
+Gracias el Web Scraping podemos obtener grandes cantidades de información de manera casi inmediata y así podemos generar programas que nos permitan tener una presencia masiva en redes sociales, obtener datos estadísticos sobre la opinión y preferencia del mundo respecto a un tema, entre otros.
+
+Link:
+https://cosasdedevs.com/posts/web-scraping-con-requests-y-beautifulsoup-en-python/
+
+El módulo webbrowser proporciona una interfaz de alto nivel para permitir la visualización de documentos Web a los usuarios. En la mayoría de los casos, simplemente vasta llamar a la función open () desde este módulo.
+
+La biblioteca de solicitudes es el estándar para realizar solicitudes HTTP en Python. Resume las complejidades de realizar solicitudes detrás de comandos simples para que pueda concentrarse en interactuar con los servicios y consumir datos en su aplicación o proyecto.
+
+
+
+
+
