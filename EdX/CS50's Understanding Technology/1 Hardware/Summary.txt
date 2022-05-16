@@ -1,0 +1,34 @@
+Lecture: https://video.cs50.io/6mbFO0ZLMW8?screen=WRB6P2vMAao
+Notes: http://cs50.harvard.edu/technology/2017/notes/1
+Slides: https://cdn.cs50.net/cscie1a/2017/fall/lectures/hardware/hardware.pdf
+Assignment: https://cs50.harvard.edu/technology/2017/assignments/1/
+
+
+Recall that we looked at ASCII in lecture, which uses just 7 or 8 bits to represent letters of the alphabet. Read up on "Unicode," as via Google, and explain in your own words how Unicode is able to represent many more symbols than can ASCII, which is particularly helpful for written languages with many more characters than English. 
+
+-- RTA
+Unicode is able to represent more symbols than ASCII because ASCII has a limitation to 7/8 bits, while Unicode can have to 8, 16 or 32 bits, having a much larger base of possible binary combinations to add different characters, emojis, letters, etc. 
+--
+
+CPU: is the brain of the computer.
+	Has multiple cores, allowing me to perform mutiple task at the same time.
+
+Intel's specializes on CPU and Cores, which allow the computer to perform multiple task at the same time and have a faster response of the software.
+
+RAM: Random Access Memory
+	Fast. 
+	normally: ?
+
+Hard-Disk: 
+
+That the things stored in a hard disk can continue being stored in even without having energy, while RAM things tend to disappear when the energy/battery is cutted down.
+In RAM there's no moving parts, it's entirely electronic, while in hard disk yes, it's a mechanical device. 
+Hard Disk is nonvolatile
+
+
+Even though both are wireless, how does Wi-Fi differ from Bluetooth? You're welcome to Google as needed, but take care to distinguish the two in your own words.
+
+-- RTA
+They both have a limited range, but while Bluetooth is limited to a few meters, Wi-Fi can connect you to the whole world, but keep in mind that the other party must also be connected to Wi-Fi.
+--
+
