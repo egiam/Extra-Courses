@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html class="wf-ptsans-n4-active wf-ptsans-n7-active wf-active no-touch" data-lt-installed="true" lang="en-us"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width"><meta property="og:description" content="This course is for students who don't (yet) consider themselves computer persons. Designed for students who work with technology every day but don't necessarily understand how it all works underneath the hood or how to solve problems when something goes wrong, this course fills in the gaps, empowering students to use and troubleshoot technology more effectively. Through lectures on hardware, the Internet, multimedia, security, programming, and web development as well as through readings on current events, this course equips students for today's technology and prepares them for tomorrow's as well.">
+
+        <meta property="og:image" content="https://img.youtube.com/vi/6mbFO0ZLMW8/maxresdefault.jpg"><meta property="og:title" content="Multimedia - CS50's Understanding Technology">
+
+        <link href="https://cs50.harvard.edu/technology/2017/favicon.ico?1652713763" rel="icon">
+
+        <!-- https://fonts.google.com/specimen/PT+Sans?query=PT+Sans&selection.family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700 -->
+        <script src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/webfont.js"></script>
+
+        <!-- https://getbootstrap.com/docs/5.1/getting-started/introduction/ -->
+        <script src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/jquery.js"></script>
+        <script src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/bootstrap.js"></script>
+
+        <!-- https://bootstrap-table.com/docs/getting-started/introduction/ -->
+        <link href="Multimedia%20-%20CS50's%20Understanding%20Technology_files/bootstrap-table.css" rel="stylesheet">
+        <script src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/bootstrap-table.js"></script>
+        <script src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/bootstrap-table-mobile.js"></script>
+
+        <!-- https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use -->
+        <link href="Multimedia%20-%20CS50's%20Understanding%20Technology_files/all.css" rel="stylesheet">
+
+        <!-- https://moment.github.io/luxon/ -->
+        <script src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/luxon.js"></script>
+
+        <!-- http://docs.mathjax.org/ -->
+        <!-- https://www.jsdelivr.com/package/npm/mathjax?path=es5 -->
+        <!-- http://docs.mathjax.org/en/latest/options/output/chtml.html?highlight=displayAlign#the-configuration-block -->
+        <script>
+            MathJax = {
+               chtml: {
+                    displayAlign: "left"
+                }
+            };
+        </script>
+        <script crossorigin="anonymous" integrity="sha256-z47L98YXVhVIaY0uyDzt675P5Ea+w3RsPh9VD5NuoTY=" src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/tex-chtml.js"></script><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style>
+
+        <!-- https://github.com/verlok/vanilla-lazyload -->
+        <script crossorigin="anonymous" integrity="sha256-33xL9TzrOxUWT7HDl78oQFuiZ+xWQyfaTgZ57S9PCDA=" src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/intersection-observer.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-lY+AkDw7AKVByP4f3k3+iMPEtartTnSX0v3SJi80F9o=" src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/lazyload.js"></script>
+
+        <!-- https://github.com/davidjbradshaw/iframe-resizer -->
+        <!-- https://www.jsdelivr.com/package/npm/iframe-resizer?path=js -->
+        <script crossorigin="anonymous" integrity="sha256-oBWDuxBG1C5U0t3xjmZZ1UAlt9sKeSRk26KiVy4jxpY=" src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/iframeResizer.js"></script>
+
+        <!-- https://github.com/scratchblocks/scratchblocks/releases -->
+        <script src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/scratchblocks.js"></script><style><![CDATA[.sb-label{font-family:Lucida Grande,Verdana,Arial,DejaVu Sans,sans-serif;font-weight:700;fill:#fff;font-size:10px;word-spacing:1px}.sb-obsolete{fill:#d42828}.sb-motion{fill:#4a6cd4}.sb-looks{fill:#8a55d7}.sb-sound{fill:#bb42c3}.sb-pen{fill:#0e9a6c}.sb-events{fill:#c88330}.sb-control{fill:#e1a91a}.sb-sensing{fill:#2ca5e2}.sb-operators{fill:#5cb712}.sb-variables{fill:#ee7d16}.sb-list{fill:#cc5b22}.sb-custom{fill:#632d99}.sb-custom-arg{fill:#5947b1}.sb-extension{fill:#4b4a60}.sb-grey{fill:#969696}.sb-bevel{filter:url(#bevelFilter)}.sb-input{filter:url(#inputBevelFilter)}.sb-input-number,.sb-input-number-dropdown,.sb-input-string{fill:#fff}.sb-literal-dropdown,.sb-literal-number,.sb-literal-number-dropdown,.sb-literal-string{font-weight:400;font-size:9px;word-spacing:0}.sb-literal-number,.sb-literal-number-dropdown,.sb-literal-string{fill:#000}.sb-darker{filter:url(#inputDarkFilter)}.sb-outline{stroke:#fff;stroke-opacity:.2;stroke-width:2;fill:none}.sb-comment,.sb-define-hat-cap{stroke:#632d99;stroke-width:1;fill:#8e2ec2}.sb-comment{fill:#ffffa5;stroke:#d0d1d2}.sb-comment-line{fill:#ffff80}.sb-comment-label{font-family:Helevetica,Arial,DejaVu Sans,sans-serif;font-weight:700;fill:#5c5d5f;word-spacing:0;font-size:12px}.sb-diff{fill:none;stroke:#000}.sb-diff-ins{stroke-width:2px}.sb-diff-del{stroke-width:3px}]]></style><style><![CDATA[.sb3-label{font:500 12pt Helevetica Neue,Helvetica,sans-serif;fill:#fff;word-spacing:1pt}.sb3-motion{fill:#4c97ff;stroke:#3373cc}.sb3-motion-alt{fill:#4280d7}.sb3-motion-dark{fill:#4c97ff}.sb3-looks{fill:#96f;stroke:#774dcb}.sb3-looks-alt{fill:#855cd6}.sb3-looks-dark{fill:#bd42bd}.sb3-sound{fill:#cf63cf;stroke:#bd42bd}.sb3-sound-alt{fill:#c94fc9}.sb3-sound-dark{fill:#bd42bd}.sb3-control{fill:#ffab19;stroke:#cf8b17}.sb3-control-alt{fill:#ec9c13}.sb3-control-dark{fill:#cf8b17}.sb3-events{fill:#ffbf00;stroke:#c90}.sb3-events-alt{fill:#e6ac00}.sb3-events-dark{fill:#c90}.sb3-sensing{fill:#5cb1d6;stroke:#2e8eb8}.sb3-sensing-alt{fill:#47a8d1}.sb3-sensing-dark{fill:#2e8eb8}.sb3-operators{fill:#59c059;stroke:#389438}.sb3-operators-alt{fill:#46b946}.sb3-operators-dark{fill:#389438}.sb3-variables{fill:#ff8c1a;stroke:#db6e00}.sb3-variables-alt{fill:#ff8000}.sb3-variables-dark{fill:#db6e00}.sb3-list{fill:#ff661a;stroke:#e64d00}.sb3-list-alt{fill:#f50}.sb3-list-dark{fill:#e64d00}.sb3-custom{fill:#ff6680;stroke:#f35}.sb3-custom-alt{fill:#ff4d6a}.sb3-custom-dark{fill:#f35}.sb3-custom-arg{fill:#ff6680;stroke:#f35}.sb3-extension{fill:#0fbd8c;stroke:#0b8e69}.sb3-extension-alt{fill:#0da57a}.sb3-extension-line{stroke:#0da57a}.sb3-extension-dark{fill:#0b8e69}.sb3-obsolete{fill:#ed4242;stroke:#ca2b2b}.sb3-obsolete-alt{fill:#db3333}.sb3-obsolete-dark{fill:#ca2b2b}.sb3-grey{fill:#bfbfbf;stroke:#909090}.sb3-grey-alt{fill:#b2b2b2}.sb3-grey-dark{fill:#909090}.sb3-input-color{stroke:#fff}.sb3-input-number,.sb3-input-string{fill:#fff}.sb3-literal-dropdown,.sb3-literal-number,.sb3-literal-number-dropdown,.sb3-literal-string{word-spacing:0}.sb3-literal-number,.sb3-literal-string{fill:#575e75}.sb3-comment{fill:#ffffa5;stroke:#d0d1d2;stroke-width:1}.sb3-comment-line{fill:#ffff80}.sb3-comment-label{font:400 12pt Helevetica Neue,Helvetica,sans-serif;fill:#000;word-spacing:0}.sb3-diff{fill:none;stroke:#000}.sb3-diff-ins{stroke-width:2px}.sb3-diff-del{stroke-width:3px}]]></style>
+
+        <!-- https://mermaid-js.github.io/ -->
+        <!-- https://www.jsdelivr.com/package/npm/mermaid -->
+        <script crossorigin="anonymous" integrity="sha256-CemUs9ITT7liCZpVMktcEw0BpAOZ1+mujlMB3UyuImU=" src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/mermaid.js"></script>
+
+        
+
+        <link href="Multimedia%20-%20CS50's%20Understanding%20Technology_files/page.css" rel="stylesheet">
+        <link rel="stylesheet" href="Multimedia%20-%20CS50's%20Understanding%20Technology_files/css.css" media="all"><script src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/jekyll-theme-cs50.js"></script>
+
+        <script>
+            window.CS50 = {
+                local: {"day":"numeric","hour":"numeric","minute":"numeric","month":"long","timeZoneName":"short","weekday":"long","year":"numeric"},
+                locale: "en",
+                tz: "America/New_York"
+            };
+        </script>
+
+        <title>Multimedia - CS50's Understanding Technology</title>
+
+
+    <style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style></head>
+
+    <body class="">
+
+        <div class="alert fixed-top mb-0 rounded-0 shadow alert-success alert-dismissible" data-alert="success dismissible" data-hash="48bf86bb94fbe6a1549c8a216ccbf4c8" id="alert" role="alert">
+            <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button><style>
+    .alert.fixed-top {
+        border: 0 !important;
+        color: #fff;
+        padding: 0 !important;
+        text-align: center;
+    }
+    .alert.fixed-top .btn-close {
+        filter: invert(.75);
+        font-size: .6rem;
+        padding-top: 0;
+    }
+</style>
+
+<div style="background-color: #005bbb; height: 29px;">
+<a class="d-block h-100 alert-link" href="https://www.npr.org/2022/02/25/1082992947/ukraine-support-help" style="color: #fff">
+<i class="fas fa-info-circle" style="margin-top: .33rem"></i>
+</a>
+</div>
+<div style="background-color: #ffd500; height: 29px;">
+<a class="d-block h-100 alert-link" href="https://www.npr.org/2022/02/25/1082992947/ukraine-support-help"></a>
+</div></div>
+        
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <aside class="col-md" style="height: 717px; top: 58px;">
+ 
+                    <header><h1 data-id="cs50sunderstanding-technology"><a href="https://cs50.harvard.edu/technology/2017/">CS50’s<br>Understanding Technology</a></h1>
+
+<p>OpenCourseWare</p>
+
+<p><a class="pr-1 small" href="https://cs50.harvard.edu/donate">Donate<i aria-hidden="true" class="fas fa-external-link-alt ps-2"></i></a></p>
+
+<p><a href="https://cs.harvard.edu/malan/">David J. Malan</a>
+<br>
+<a href="mailto:malan@harvard.edu">malan@harvard.edu</a>
+<br>
+<a class="mr-1" href="https://www.facebook.com/dmalan"><i aria-hidden="true" class="fab fa-facebook-f" title="Facebook"></i><span class="sr-only">Facebook</span></a>
+<a class="mr-1" href="https://github.com/dmalan"><i aria-hidden="true" class="fab fa-github" title="GitHub"></i><span class="sr-only">GitHub</span></a>
+<a class="mr-1" href="https://www.instagram.com/davidjmalan/"><i aria-hidden="true" class="fab fa-instagram" title="Instagram"></i><span class="sr-only">Instagram</span></a>
+<a class="mr-1" href="https://www.linkedin.com/in/malan/"><i aria-hidden="true" class="fab fa-linkedin" title="LinkedIn"></i><span class="sr-only">LinkedIn</span></a>
+<a class="mr-1" href="https://orcid.org/0000-0001-5338-2522"><i aria-hidden="true" class="fab fa-orcid" title="ORCID"></i><span class="sr-only">ORCID</span></a>
+<a class="mr-1" href="https://www.quora.com/profile/David-J-Malan"><i aria-hidden="true" class="fab fa-quora" title="Quora"></i><span class="sr-only">Quora</span></a>
+<a class="mr-1" href="https://www.reddit.com/user/davidjmalan"><i aria-hidden="true" class="fab fa-reddit-alien" title="Reddit"></i><span class="sr-only">Reddit</span></a>
+<a class="mr-1" href="https://www.tiktok.com/@davidjmalan"><i aria-hidden="true" class="fab fa-tiktok" title="TikTok"></i><span class="sr-only">TikTok</span></a>
+<a class="mr-1" href="https://twitter.com/davidjmalan"><i aria-hidden="true" class="fab fa-twitter" title="Twitter"></i><span class="sr-only">Twitter</span></a></p></header>
+
+                    
+
+                    <button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-md-none" data-bs-target="aside &gt; nav" data-bs-toggle="collapse">
+                        Menu
+                    </button>
+
+                    <nav class="collapse d-md-block" id="nav"><hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/x/movie/">🍿 CS50x Movie Night 2022</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/x/puzzles/"><i class="fas fa-puzzle-piece pe-2"></i>CS50x Puzzle Day 2022</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/x/prepare/"><i class="fas fa-book pe-2"></i>How to Prepare for Technical Interviews</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.ly/zoom"><i class="fas fa-video pe-2"></i>Zoom Meetings</a></li>
+</ul>
+
+<hr>
+
+<ol>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/1/">Hardware</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/2/">Internet</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/3/">Multimedia</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/4/">Security</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/5/">Web Development</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/6/">Programming</a></li>
+</ol>
+
+<hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/technology/2017/honesty/">Academic Honesty</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/technology/2017/certificate/">CS50 Certificate</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/technology/2017/faqs/">FAQs</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.me/cs50t">Gradebook</a></li>
+</ul>
+
+<hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.edx.org/ed">Ed Discussion</a> for Q&amp;A</li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://us.edstem.org/quickstart/ed-discussion.pdf">Quick Start Guide</a></li>
+</ul>
+
+<hr>
+
+<ul class="small fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.edx.org/technology">edX</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.extension.harvard.edu/course-catalog/courses/understanding-technology/15513">Harvard</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://itunes.apple.com/us/course/cs50s-understanding-technology/id1331091914">iTunes U</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.youtube.com/playlist?list=PLhQjrBD2T382p8amnvUp1rws1p7n7gJ2p">YouTube</a></li>
+</ul>
+
+<hr>
+
+<ul class="small fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.noticeable.news/">Changelog</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.statuspage.io/">Status Page</a></li>
+</ul>
+
+<hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/technology/2017/communities/"><strong>Communities</strong></a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.clubhouse.com/club/cs50">Clubhouse</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://discord.gg/cs50">Discord</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.edx.org/ed">Ed</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.facebook.com/groups/cs50/">Facebook Group</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.facebook.com/cs50/">Facebook Page</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://github.com/cs50">GitHub</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://gitter.im/cs50/x">Gitter</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://instagram.com/cs50">Instagram</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.linkedin.com/groups/7437240/">LinkedIn Group</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.linkedin.com/school/CS50/">LinkedIn Page</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.medium.com/">Medium</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.quora.com/topic/CS50">Quora</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.reddit.com/r/cs50/">Reddit</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.edx.org/slack">Slack</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.snapchat.com/add/cs50">Snapchat</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://soundcloud.com/cs50">SoundCloud</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.stackexchange.com/">Stack Exchange</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.tiktok.com/@cs50">TikTok</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://twitter.com/cs50">Twitter</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="http://www.youtube.com/subscription_center?add_user=cs50tv">YouTube</a></li>
+</ul>
+
+<hr>
+
+<p><a href="https://cs50.harvardshop.com/"><img src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/GGMdcKt.png" alt="Harvard Shop"></a></p>
+
+<hr>
+
+<p><a href="https://cs50.harvard.edu/technology/2017/license/" class="small"><i class="fab fa-creative-commons me-1"></i>License</a></p></nav>
+
+                    <footer></footer>
+
+                </aside>
+
+                <main class="col-md" style="margin-bottom: 294px; margin-top: 58px;">
+
+                    <a data-id="" id="multimedia" style="top: -58px;"></a><h1><a data-id="" href="#multimedia">Multimedia</a></h1>
+
+<p>by Spencer Tiberi</p>
+
+<a data-id="" id="introduction" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/multimedia?t=0m10s">Introduction</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Odds are you use it everyday, but what is it?</li>
+</ul>
+
+<a data-id="" id="audio" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/multimedia?t=0m17s">Audio</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Computers are good at recording, playing back, and generating audio</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Uses different file formats
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>File formats are just a way of storing 0s and 1s on disk so that certain software knows how to interpret it</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>MIDI
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Way of storing musical notes for certain songs</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Can do this for different instruments
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Programs can render the notes for these instruments</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>GarageBand
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Included with macOS</li>
+    </ul>
+
+    <p><img src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/garageband.png" alt="GarageBand" width="400px"></p>
+
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This is the Star Wars theme in MIDI
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Doesn’t sound quite as good as the actual version</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Computer synthesizes the notes
+            <ul class="fa-ul">
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Not an actual recording</li>
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Computer interprets notes in the MIDI file</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>MIDI is common in the digital workspace among musicians who wish to share music with each other.</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Humans typically like to hear music preformed and recorded by humans
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>File formats for recorded music include:
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>AAC</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>MIDI</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>MP3</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>WAV</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>WAV is an early sound format, but still used
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Uncompressed data storage allowing high quality</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>MP3
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>File format for audio that uses compression
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Significantly reduce how many bits are necessary to store a song</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Discards 0s and 1s that humans can’t necessarily hear
+            <ul class="fa-ul">
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>True audiophiles may disagree</li>
+            </ul>
+          </li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Trade off between optimizing storage space and sacrificing quality</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This compression is said to be lossy
+            <ul class="fa-ul">
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Losing the quality in the compression process</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>AAC
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Similar to MP3</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>May see when you download a song from iTunes</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Streaming services such as Spotify don’t transfer a file to you but rather stream bits of information to you</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>How do we think about the quality of these formats?
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Sampling frequency
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Number of times per seconds we take a digital snapshot of what a person would hear</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Bit depth
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Number of bits used for these individual snapshots</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Sampling frequency x bit depth = number of bits necessary to store one second of music</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Audio file formats allow you to modify what these parameters are</li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="graphics" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/multimedia?t=5m3s">Graphics</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>A graphic, what we see with multimedia, is really just a bunch of pixels both horizontal and vertical
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>All file formats are rectangular in nature, though transparent pixels can make images look to take on other shapes</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>
+        <p>In the simplest form, each of the dots or pixels is a bunch of 0s and 1s</p>
+
+        <p><img src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/smile.png" alt="smile" width="400px"></p>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>To create a file format, we just need to determine a mapping</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This image is only black and white, so how to represent color?</li>
+</ul>
+
+<a data-id="" id="rgb" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/multimedia?t=7m1s">RGB</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>RGB stands for Red Green Blue
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>With
+ information giving an amount of red, an amount of green, and an amount 
+of blue, you can tell a computer how to colorize pixels</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>None of the colors yields a black pixel</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>All of the colors yields a white pixel</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>In between these two options is where we get all sorts of colors</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Consider the three bytes: 11111111 00000000 00000000
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>If we interpret these bytes to represent colors, it appears we want all of the red, none of the green, and none of the blue</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>These 24 bits (3 bytes =  3 x 8 bits = 24 bits) represent the color we know as red!
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>If a computer wanted to represent this color, it would store these 24 bits</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Consider the three bytes: 00000000 11111111 00000000
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><span style="color: #00ff00">Green</span></li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Consider the three bytes: 00000000 0000000 11111111
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><span style="color: #0000ff">Blue</span></li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Consider the three bytes: 00000000 0000000 0000000
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><span style="color: #000000">Black</span></li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Consider the three bytes: 11111111 11111111 11111111
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><span style="color: #ffffff; background-color: #000000">White</span></li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Can get many color variations by mixing the above colors in different quantities</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>When
+ we talk about image formats, we typically don’t talk in terms of binary
+ but rather something called hexadecimal (base-16, contains 16 digits)
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>0 is the smallest number we can represent in single digit</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>f is the largest number (value of 15) we can represent in a single digit</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Consider the 8 bits: 1111 1111
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Each hexadecimal digit represents four bits</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>One hexadecimal digit can represent the first four bits, another can represent the second four
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Represent something with eight symbols using only two!</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>1111 is the decimal number 15, which is f</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Therefore, 1111 1111 in hexadecimal is ff</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Red can thus be represented in hexadecimal as <span style="ff0000"> ff 00 00 </span></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Green can be represented in hexadecimal as <span style="00ff00"> 00 ff 00 </span></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Blue can be represented in hexadecimal as <span style="0000ff"> 00 00 ff </span></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>A lot of graphical editing software such as Photoshop use hexadecimal to represent colors</li>
+</ul>
+
+<a data-id="" id="bitmap-format" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/multimedia?t=12m45s">Bitmap Format</a></h2>
+<p><img src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/xp.png" alt="XP" width="400px"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This background for Windows XP was a bitmap file (.bmp)
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>A mapping or grid of bits much like the smiley face from before</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>
+    <p>Zooming in on this image show that it is just a grid of dots</p>
+
+    <p><img src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/xpzoom.png" alt="XP zoom" width="400px"></p>
+
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Notice the pixelation</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Much like with audio, so too in the world of images do you have discretion over how many bits to use
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>How many bits to represent each pixel’s color?</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Resolution is another factor
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>An image that is only 100 pixels scaled up only duplicates the existing limited information, resulting in a blotchy image</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Would be better to start with image that has a higher resolution (more pixels)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>A lot of repeated colors, so it seems silly to represent each color with the same number of bits</li>
+</ul>
+
+<a data-id="" id="image-compression" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/multimedia?t=17m28s">Image Compression</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Graphical file formats can often be compressed</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Can be done lossy or losslessly
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>With audio, we threw away audio information that the human ear can’t necessarily hear
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This is lossy compression; throwing information away</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Using fewer bits to represent the same information is lossless compression</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>
+    <p>Lossless compression</p>
+
+    <p><img src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/apples.png" alt="apples" width="400"></p>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>There is a lot of repeated blue in the first image
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Using the same 24 bits to represent each pixel!</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The second image is compressed and not what a user would see
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The first column contains the color that the rest of the row (scan line) should have
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Image contains instructions on how to repeat the color in a particular row</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>When
+ a color is encountered that isn’t in the first column (the apple in 
+this case), the instructions would list the colors for each non-repeated
+ pixel</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This uses less bits but makes the original information recoverable</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>
+    <p>Lossy compression</p>
+
+    <p><img src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/sunflower1.png" alt="sunflower1" width="400px"></p>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This is a .jpg photograph that is somewhat compressed, but not easy to tell</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Let’s say we want to compress this image further so that we can share it without going over a social media platform’s limit</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>
+    <p>It contains more complicated patterns of colors, so let’s try a lossy compression resulting in the following:</p>
+
+    <p><img src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/sunflower2.png" alt="sunflower2" width="400px"></p>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Lossy compression means that I won’t be able to get that original image back
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The compression throws away bits of information
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>“Does the sky really need this many shades of blue?”</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>“Does this leaf really need this many shades of green”
+            <ul class="fa-ul">
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Replaces bits with only a few colors giving an approximation</li>
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>I will not be able to know how clear the sky used to be from this information</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="image-file-formats" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/multimedia?t=23m21s">Image File Formats</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>BMP
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Originally used by Windows</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Not super common these days</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>GIF
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Low quality images
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Only supports 8-bit color</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Often used for memes
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Can be animated</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>
+            <p>Like a video file with only a few images</p>
+
+            <p><img src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/nyan.gif" alt="nyan" width="250px"></p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>JPEG
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Supports 24-bit color</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Losslessly compresses
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Can minimize amount of compression to create high quality photos</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>PNG
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>High quality graphics</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Supports 24-bit color</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>All these formats ultimately have an limited amount of information
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Ultimate just store pixels and colors of when the image was taken</li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="enhance" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/multimedia?t=27m0s">“Enhance”</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Common for popular culture abuses of what it means to be a multimedia format
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>“Enhancing” means to make an image as clear as possible not matter what format it was saved in</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/multimedia?t=27m30s">David shows a clip of characters “enhancing” an image</a>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The characters zoom into a pixelated frame of a video and somehow clear it up to see a reflection
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Video is just a whole bunch of images being shown to us quickly (24 frames per second, etc.)</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The pixelated image only contains information for those pixels
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>There is no way to obtain a clear image unless the original image was already at a high resolution</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/multimedia?t=30m5s">David contrasts this with an aware clip of Futurama</a></li>
+</ul>
+
+<a data-id="" id="video-compression" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/multimedia?t=30m21s">Video Compression</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>You can think of a video format as similar to a flip book</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Video formats are just a bunch of images shown quickly in succession to create the illusion of motion
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Not necessarily all information stored as png, jpg, gif, or even images</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Algorithms and mathematics can help go from one frame to another</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Opportunities for compression
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Can leverage same image compression techniques for each frame (intra-frame coding)</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>
+        <p>Background of multiple frames can contain redundant information</p>
+
+        <p><img src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/interframe.png" alt="interframe" width="400px"></p>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Compare current frame and next frame of video and determine what has changed
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Store these differences</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Key frames store a snapshot of time to remember what the video looks like</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>In each subsequent frame remember what has changed
+            <ul class="fa-ul">
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Using algorithms and math, background is drawn</li>
+            </ul>
+          </li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Key frames are stored multiple times to guarantee that frames can be recovered</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="video-file-formats" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/multimedia?t=34m16s">Video File Formats</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>In the world of video, there are more solutions on how to store information</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Video file formats are containers
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Containers are digital container in which you can put multiple types of data</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Can include a video track, audio track, a secondary audio track (for different languages), closed captions, …</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>AVI
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Commonly used in Windows</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>DivX</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Matroska
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Open source container meant to be more versatile</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>MP4
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Pretty much universal in all browsers</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>QuickTime
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Commonly used in MacOS</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Codecs
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Ways of storing and encoding information</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>For video:
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>H.264</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>MPEG-4 Part-2</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>…</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>For audio:
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Can be stand alone files or tracks in a container!</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>AAC</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>MP3</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>…</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="3d-video" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/multimedia?t=36m45s">3D Video</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>
+    <p>Increasingly, 3D formats are becoming more common</p>
+
+    <p><img src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/sanders.png" alt="Sanders" width="400px"></p>
+
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This is a 360 degree image of Sanders Theatre
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>A spherical image</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Looks distorted in 2D</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Like flattening a globe</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Images can contain metadata
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Information that viewers can’t see</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Tells programs, applications, and browsers how to display the image</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>
+    <p>With sensors on a headset, users can experience virtual reality</p>
+
+    <p><img src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/vr.png" alt="VR" width="400px"></p>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>More file formats are still on the horizon, but ultimately all of them boil down to storing 0s and 1s and why!</li>
+</ul>
+
+
+                </main>
+
+            </div>
+
+        </div>
+
+        
+ 
+        <script src="Multimedia%20-%20CS50's%20Understanding%20Technology_files/page.js"></script>
+
+    
+
+
+<textarea id="BFI_DATA" style="width: 1px; height: 1px; display: none;"></textarea><title> </title><div id="WidgetFloaterPanels" translate="no" style="display: none; text-align: left; direction: ltr; visibility: hidden;" class="LTRStyle"> <div id="WidgetFloater" style="display: none" onmouseover="Microsoft.Translator.OnMouseOverFloater()" onmouseout="Microsoft.Translator.OnMouseOutFloater()"> <div id="WidgetLogoPanel"> <span id="WidgetTranslateWithSpan"><span>TRANSLATE with </span><img id="FloaterLogo"></span> <span id="WidgetCloseButton" title="Exit Translation" onclick="Microsoft.Translator.FloaterOnClose()">x</span></div> <div id="LanguageMenuPanel"> <div class="DDStyle_outer"><input name="LanguageMenu_svid" type="text" id="LanguageMenu_svid" style="display:none;" autocomplete="on" value="en" onclick="this.select()"> <input name="LanguageMenu_textid" type="text" id="LanguageMenu_textid" style="display:none;" autocomplete="on" onclick="this.select()"> <span onselectstart="return false" tabindex="0" class="DDStyle" id="__LanguageMenu_header" onclick="return LanguageMenu &amp;&amp; !LanguageMenu.Show('__LanguageMenu_popup', event);" onkeydown="return LanguageMenu &amp;&amp; !LanguageMenu.Show('__LanguageMenu_popup', event);">English</span> <div style="position:relative;text-align:left;left:0;"><div style="position:absolute;width:;left:0px;"><div class="DDStyle" style="display:none;" id="__LanguageMenu_popup"> <table id="LanguageMenu" border="0"> <tbody><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('ar');" ondragstart="LanguageMenu.ondragstart(event);" href="#ar">Arabic</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('he');" ondragstart="LanguageMenu.ondragstart(event);" href="#he">Hebrew</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('pl');" ondragstart="LanguageMenu.ondragstart(event);" href="#pl">Polish</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('bg');" ondragstart="LanguageMenu.ondragstart(event);" href="#bg">Bulgarian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('hi');" ondragstart="LanguageMenu.ondragstart(event);" href="#hi">Hindi</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('pt');" ondragstart="LanguageMenu.ondragstart(event);" href="#pt">Portuguese</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('ca');" ondragstart="LanguageMenu.ondragstart(event);" href="#ca">Catalan</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('mww');" ondragstart="LanguageMenu.ondragstart(event);" href="#mww">Hmong Daw</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ro');" ondragstart="LanguageMenu.ondragstart(event);" href="#ro">Romanian</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('zh-CHS');" ondragstart="LanguageMenu.ondragstart(event);" href="#zh-CHS">Chinese Simplified</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('hu');" ondragstart="LanguageMenu.ondragstart(event);" href="#hu">Hungarian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ru');" ondragstart="LanguageMenu.ondragstart(event);" href="#ru">Russian</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('zh-CHT');" ondragstart="LanguageMenu.ondragstart(event);" href="#zh-CHT">Chinese Traditional</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('id');" ondragstart="LanguageMenu.ondragstart(event);" href="#id">Indonesian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('sk');" ondragstart="LanguageMenu.ondragstart(event);" href="#sk">Slovak</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('cs');" ondragstart="LanguageMenu.ondragstart(event);" href="#cs">Czech</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('it');" ondragstart="LanguageMenu.ondragstart(event);" href="#it">Italian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('sl');" ondragstart="LanguageMenu.ondragstart(event);" href="#sl">Slovenian</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('da');" ondragstart="LanguageMenu.ondragstart(event);" href="#da">Danish</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ja');" ondragstart="LanguageMenu.ondragstart(event);" href="#ja">Japanese</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('es');" ondragstart="LanguageMenu.ondragstart(event);" href="#es">Spanish</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('nl');" ondragstart="LanguageMenu.ondragstart(event);" href="#nl">Dutch</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('tlh');" ondragstart="LanguageMenu.ondragstart(event);" href="#tlh">Klingon</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('sv');" ondragstart="LanguageMenu.ondragstart(event);" href="#sv">Swedish</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('en');" ondragstart="LanguageMenu.ondragstart(event);" href="#en">English</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ko');" ondragstart="LanguageMenu.ondragstart(event);" href="#ko">Korean</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('th');" ondragstart="LanguageMenu.ondragstart(event);" href="#th">Thai</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('et');" ondragstart="LanguageMenu.ondragstart(event);" href="#et">Estonian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('lv');" ondragstart="LanguageMenu.ondragstart(event);" href="#lv">Latvian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('tr');" ondragstart="LanguageMenu.ondragstart(event);" href="#tr">Turkish</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('fi');" ondragstart="LanguageMenu.ondragstart(event);" href="#fi">Finnish</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('lt');" ondragstart="LanguageMenu.ondragstart(event);" href="#lt">Lithuanian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('uk');" ondragstart="LanguageMenu.ondragstart(event);" href="#uk">Ukrainian</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('fr');" ondragstart="LanguageMenu.ondragstart(event);" href="#fr">French</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ms');" ondragstart="LanguageMenu.ondragstart(event);" href="#ms">Malay</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ur');" ondragstart="LanguageMenu.ondragstart(event);" href="#ur">Urdu</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('de');" ondragstart="LanguageMenu.ondragstart(event);" href="#de">German</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('mt');" ondragstart="LanguageMenu.ondragstart(event);" href="#mt">Maltese</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('vi');" ondragstart="LanguageMenu.ondragstart(event);" href="#vi">Vietnamese</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('el');" ondragstart="LanguageMenu.ondragstart(event);" href="#el">Greek</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('no');" ondragstart="LanguageMenu.ondragstart(event);" href="#no">Norwegian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('cy');" ondragstart="LanguageMenu.ondragstart(event);" href="#cy">Welsh</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('ht');" ondragstart="LanguageMenu.ondragstart(event);" href="#ht">Haitian Creole</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('fa');" ondragstart="LanguageMenu.ondragstart(event);" href="#fa">Persian</a></td><td></td> </tr> </tbody></table> <img alt="" style="height:7px;width:17px;border-width:0px;left:20px;"> </div></div></div></div> <script type="text/javascript"> var LanguageMenu; var LanguageMenu_keys=["ar","bg","ca","zh-CHS","zh-CHT","cs","da","nl","en","et","fi","fr","de","el","ht","he","hi","mww","hu","id","it","ja","tlh","ko","lv","lt","ms","mt","no","fa","pl","pt","ro","ru","sk","sl","es","sv","th","tr","uk","ur","vi","cy"]; var LanguageMenu_values=["Arabic","Bulgarian","Catalan","Chinese Simplified","Chinese Traditional","Czech","Danish","Dutch","English","Estonian","Finnish","French","German","Greek","Haitian Creole","Hebrew","Hindi","Hmong Daw","Hungarian","Indonesian","Italian","Japanese","Klingon","Korean","Latvian","Lithuanian","Malay","Maltese","Norwegian","Persian","Polish","Portuguese","Romanian","Russian","Slovak","Slovenian","Spanish","Swedish","Thai","Turkish","Ukrainian","Urdu","Vietnamese","Welsh"]; var LanguageMenu_callback=function(){ }; var LanguageMenu_popupid='__LanguageMenu_popup'; </script> </div> <div id="CTFLinksPanel"> <span id="ExternalLinksPanel"><a id="HelpLink" title="Help" target="_blank" href="https://go.microsoft.com/?linkid=9722454"> <img id="HelpImg"></a> <a id="EmbedLink" href="javascript:Microsoft.Translator.FloaterShowEmbed()" title="Get this widget for your own site"> <img id="EmbedImg"></a> <a id="ShareLink" title="Share translated page with friends" href="javascript:Microsoft.Translator.FloaterShowSharePanel()"> <img id="ShareImg"></a> </span> </div> <div id="FloaterProgressBar"> <span id="ProgressFill"></span> </div> </div> <div id="WidgetFloaterCollapsed" style="display: none" onmouseover="Microsoft.Translator.OnMouseOverFloater()"> <span>TRANSLATE with </span><img id="CollapsedLogoImg"></div> <div id="FloaterSharePanel" style="display: none"> <div id="ShareTextDiv"> <span id="ShareTextSpan"> COPY THE URL BELOW </span> </div> <div id="ShareTextboxDiv"> <input name="ShareTextbox" type="text" id="ShareTextbox" readonly="readonly" onclick="this.select()"> <!--a id="TwitterLink" title="Share on Twitter"> <img id="TwitterImg" /></a> <a-- id="FacebookLink" title="Share on Facebook"> <img id="FacebookImg" /></a--> <a id="EmailLink" title="Email this translation"> <img id="EmailImg"></a> </div> <div id="ShareFooter"> <span id="ShareHelpSpan"><a id="ShareHelpLink"> <img id="ShareHelpImg"></a></span> <span id="ShareBackSpan"><a id="ShareBack" href="javascript:Microsoft.Translator.FloaterOnShareBackClick()" title="Back To Translation"> Back</a></span> </div> <input name="EmailSubject" type="hidden" id="EmailSubject" value="Check out this page in {0} translated from {1}"> <input name="EmailBody" type="hidden" id="EmailBody" value="Translated: {0}%0d%0aOriginal: {1}%0d%0a%0d%0aAutomatic translation powered by Microsoft® Translator%0d%0ahttp://www.bing.com/translator?ref=MSTWidget"> <input type="hidden" id="ShareHelpText" value="This link allows visitors to launch this page and automatically translate it to {0}."> </div> <div id="FloaterEmbed" style="display: none"> <div id="EmbedTextDiv"> <span id="EmbedTextSpan">EMBED THE SNIPPET BELOW IN YOUR SITE</span> <a id="EmbedHelpLink" title="Copy this code and place it into your HTML."> <img id="EmbedHelpImg"></a> </div> <div id="EmbedTextboxDiv"> <input name="EmbedSnippetTextBox" type="text" id="EmbedSnippetTextBox" readonly="readonly" value="&lt;div id='MicrosoftTranslatorWidget' class='Dark' style='color:white;background-color:#555555'&gt;&lt;/div&gt;&lt;script type='text/javascript'&gt;setTimeout(function(){var s=document.createElement('script');s.type='text/javascript';s.charset='UTF-8';s.src=((location &amp;&amp; location.href &amp;&amp; location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=ueOIGRSKkd965FeEGM5JtQ**&amp;ctf=true&amp;ui=true&amp;settings=manual&amp;from=en';var p=document.getElementsByTagName('head')[0]||document.documentElement;p.insertBefore(s,p.firstChild); },0);&lt;/script&gt;" onclick="this.select()"> </div> <div id="EmbedNoticeDiv"><span id="EmbedNoticeSpan">Enable collaborative features and customize widget: <a href="http://www.bing.com/widget/translator" target="_blank">Bing Webmaster Portal</a></span></div> <div id="EmbedFooterDiv"><span id="EmbedBackSpan"><a href="javascript:Microsoft.Translator.FloaterOnEmbedBackClick()" title="Back To Translation">Back</a></span></div> </div> <script type="text/javascript"> var intervalId = setInterval(function () { if (MtPopUpList) { LanguageMenu = new MtPopUpList(); var langMenu = document.getElementById(LanguageMenu_popupid); var origLangDiv = document.createElement("div"); origLangDiv.id = "OriginalLanguageDiv"; origLangDiv.innerHTML = "<span id='OriginalTextSpan'>ORIGINAL: </span><span id='OriginalLanguageSpan'></span>"; langMenu.appendChild(origLangDiv); LanguageMenu.Init('LanguageMenu', LanguageMenu_keys, LanguageMenu_values, LanguageMenu_callback, LanguageMenu_popupid); window["LanguageMenu"] = LanguageMenu; clearInterval(intervalId); } }, 1); </script> </div></body></html>

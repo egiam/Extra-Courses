@@ -1,0 +1,11 @@
+Multimedia
+
+Sampling Frequency
+Number of times per second that we can take a digital snapshot
+
+bit depth 
+How many bits we will be using for that snapshot
+
+bd * sf = space needed
+
+RGB (Red, Green, Blue)

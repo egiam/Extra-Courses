@@ -1,0 +1,42 @@
+
+Internet
+
+Home - Network
+
+DSA Modem
+
+IP: Unique adress that allows other computers on the internet to talk with them
+#.#.#.#
+196.235.326.123
+Internet Protocol
+
+DHCP
+Dynamic Host Comunication Protocol
+
+DNS Servers
+Domain Name System
+Convert domain names like facebook.com to IP 
+
+TCP/IP
+Transmission Control Protocol / Internet Protocol
+
+80 => HTTP
+Hyper Text Transfer Protocol
+
+UDP => doesn't guarantee delivery
+
+IPV4 = 2^32
+IPV6 = 2^128
+
+10.0
+196.
+Private Adress
+
+Router propouse is to get data towards other destination
+
+traceroute www.google.com
+Gives the x number of routers that intercomunicates between google and you.
+
+
+
+
