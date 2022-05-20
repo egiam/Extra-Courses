@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html class="wf-ptsans-n7-active wf-ptsans-n4-active wf-active no-touch" data-lt-installed="true" lang="en-us"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width"><meta property="og:description" content="This course is for students who don't (yet) consider themselves computer persons. Designed for students who work with technology every day but don't necessarily understand how it all works underneath the hood or how to solve problems when something goes wrong, this course fills in the gaps, empowering students to use and troubleshoot technology more effectively. Through lectures on hardware, the Internet, multimedia, security, programming, and web development as well as through readings on current events, this course equips students for today's technology and prepares them for tomorrow's as well.">
+
+        <meta property="og:image" content="https://img.youtube.com/vi/6mbFO0ZLMW8/maxresdefault.jpg"><meta property="og:title" content="Web Development - CS50's Understanding Technology">
+
+        <link href="https://cs50.harvard.edu/technology/2017/favicon.ico?1652713763" rel="icon">
+
+        <!-- https://fonts.google.com/specimen/PT+Sans?query=PT+Sans&selection.family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700 -->
+        <script src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/webfont.js"></script>
+
+        <!-- https://getbootstrap.com/docs/5.1/getting-started/introduction/ -->
+        <script src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/jquery.js"></script>
+        <script src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/bootstrap.js"></script>
+
+        <!-- https://bootstrap-table.com/docs/getting-started/introduction/ -->
+        <link href="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/bootstrap-table.css" rel="stylesheet">
+        <script src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/bootstrap-table.js"></script>
+        <script src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/bootstrap-table-mobile.js"></script>
+
+        <!-- https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use -->
+        <link href="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/all.css" rel="stylesheet">
+
+        <!-- https://moment.github.io/luxon/ -->
+        <script src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/luxon.js"></script>
+
+        <!-- http://docs.mathjax.org/ -->
+        <!-- https://www.jsdelivr.com/package/npm/mathjax?path=es5 -->
+        <!-- http://docs.mathjax.org/en/latest/options/output/chtml.html?highlight=displayAlign#the-configuration-block -->
+        <script>
+            MathJax = {
+               chtml: {
+                    displayAlign: "left"
+                }
+            };
+        </script>
+        <script crossorigin="anonymous" integrity="sha256-z47L98YXVhVIaY0uyDzt675P5Ea+w3RsPh9VD5NuoTY=" src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/tex-chtml.js"></script><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style>
+
+        <!-- https://github.com/verlok/vanilla-lazyload -->
+        <script crossorigin="anonymous" integrity="sha256-33xL9TzrOxUWT7HDl78oQFuiZ+xWQyfaTgZ57S9PCDA=" src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/intersection-observer.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-lY+AkDw7AKVByP4f3k3+iMPEtartTnSX0v3SJi80F9o=" src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/lazyload.js"></script>
+
+        <!-- https://github.com/davidjbradshaw/iframe-resizer -->
+        <!-- https://www.jsdelivr.com/package/npm/iframe-resizer?path=js -->
+        <script crossorigin="anonymous" integrity="sha256-oBWDuxBG1C5U0t3xjmZZ1UAlt9sKeSRk26KiVy4jxpY=" src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/iframeResizer.js"></script>
+
+        <!-- https://github.com/scratchblocks/scratchblocks/releases -->
+        <script src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/scratchblocks.js"></script><style><![CDATA[.sb-label{font-family:Lucida Grande,Verdana,Arial,DejaVu Sans,sans-serif;font-weight:700;fill:#fff;font-size:10px;word-spacing:1px}.sb-obsolete{fill:#d42828}.sb-motion{fill:#4a6cd4}.sb-looks{fill:#8a55d7}.sb-sound{fill:#bb42c3}.sb-pen{fill:#0e9a6c}.sb-events{fill:#c88330}.sb-control{fill:#e1a91a}.sb-sensing{fill:#2ca5e2}.sb-operators{fill:#5cb712}.sb-variables{fill:#ee7d16}.sb-list{fill:#cc5b22}.sb-custom{fill:#632d99}.sb-custom-arg{fill:#5947b1}.sb-extension{fill:#4b4a60}.sb-grey{fill:#969696}.sb-bevel{filter:url(#bevelFilter)}.sb-input{filter:url(#inputBevelFilter)}.sb-input-number,.sb-input-number-dropdown,.sb-input-string{fill:#fff}.sb-literal-dropdown,.sb-literal-number,.sb-literal-number-dropdown,.sb-literal-string{font-weight:400;font-size:9px;word-spacing:0}.sb-literal-number,.sb-literal-number-dropdown,.sb-literal-string{fill:#000}.sb-darker{filter:url(#inputDarkFilter)}.sb-outline{stroke:#fff;stroke-opacity:.2;stroke-width:2;fill:none}.sb-comment,.sb-define-hat-cap{stroke:#632d99;stroke-width:1;fill:#8e2ec2}.sb-comment{fill:#ffffa5;stroke:#d0d1d2}.sb-comment-line{fill:#ffff80}.sb-comment-label{font-family:Helevetica,Arial,DejaVu Sans,sans-serif;font-weight:700;fill:#5c5d5f;word-spacing:0;font-size:12px}.sb-diff{fill:none;stroke:#000}.sb-diff-ins{stroke-width:2px}.sb-diff-del{stroke-width:3px}]]></style><style><![CDATA[.sb3-label{font:500 12pt Helevetica Neue,Helvetica,sans-serif;fill:#fff;word-spacing:1pt}.sb3-motion{fill:#4c97ff;stroke:#3373cc}.sb3-motion-alt{fill:#4280d7}.sb3-motion-dark{fill:#4c97ff}.sb3-looks{fill:#96f;stroke:#774dcb}.sb3-looks-alt{fill:#855cd6}.sb3-looks-dark{fill:#bd42bd}.sb3-sound{fill:#cf63cf;stroke:#bd42bd}.sb3-sound-alt{fill:#c94fc9}.sb3-sound-dark{fill:#bd42bd}.sb3-control{fill:#ffab19;stroke:#cf8b17}.sb3-control-alt{fill:#ec9c13}.sb3-control-dark{fill:#cf8b17}.sb3-events{fill:#ffbf00;stroke:#c90}.sb3-events-alt{fill:#e6ac00}.sb3-events-dark{fill:#c90}.sb3-sensing{fill:#5cb1d6;stroke:#2e8eb8}.sb3-sensing-alt{fill:#47a8d1}.sb3-sensing-dark{fill:#2e8eb8}.sb3-operators{fill:#59c059;stroke:#389438}.sb3-operators-alt{fill:#46b946}.sb3-operators-dark{fill:#389438}.sb3-variables{fill:#ff8c1a;stroke:#db6e00}.sb3-variables-alt{fill:#ff8000}.sb3-variables-dark{fill:#db6e00}.sb3-list{fill:#ff661a;stroke:#e64d00}.sb3-list-alt{fill:#f50}.sb3-list-dark{fill:#e64d00}.sb3-custom{fill:#ff6680;stroke:#f35}.sb3-custom-alt{fill:#ff4d6a}.sb3-custom-dark{fill:#f35}.sb3-custom-arg{fill:#ff6680;stroke:#f35}.sb3-extension{fill:#0fbd8c;stroke:#0b8e69}.sb3-extension-alt{fill:#0da57a}.sb3-extension-line{stroke:#0da57a}.sb3-extension-dark{fill:#0b8e69}.sb3-obsolete{fill:#ed4242;stroke:#ca2b2b}.sb3-obsolete-alt{fill:#db3333}.sb3-obsolete-dark{fill:#ca2b2b}.sb3-grey{fill:#bfbfbf;stroke:#909090}.sb3-grey-alt{fill:#b2b2b2}.sb3-grey-dark{fill:#909090}.sb3-input-color{stroke:#fff}.sb3-input-number,.sb3-input-string{fill:#fff}.sb3-literal-dropdown,.sb3-literal-number,.sb3-literal-number-dropdown,.sb3-literal-string{word-spacing:0}.sb3-literal-number,.sb3-literal-string{fill:#575e75}.sb3-comment{fill:#ffffa5;stroke:#d0d1d2;stroke-width:1}.sb3-comment-line{fill:#ffff80}.sb3-comment-label{font:400 12pt Helevetica Neue,Helvetica,sans-serif;fill:#000;word-spacing:0}.sb3-diff{fill:none;stroke:#000}.sb3-diff-ins{stroke-width:2px}.sb3-diff-del{stroke-width:3px}]]></style>
+
+        <!-- https://mermaid-js.github.io/ -->
+        <!-- https://www.jsdelivr.com/package/npm/mermaid -->
+        <script crossorigin="anonymous" integrity="sha256-CemUs9ITT7liCZpVMktcEw0BpAOZ1+mujlMB3UyuImU=" src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/mermaid.js"></script>
+
+        
+
+        <link href="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/page.css" rel="stylesheet">
+        <link rel="stylesheet" href="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/css.css" media="all"><script src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/jekyll-theme-cs50.js"></script>
+
+        <script>
+            window.CS50 = {
+                local: {"day":"numeric","hour":"numeric","minute":"numeric","month":"long","timeZoneName":"short","weekday":"long","year":"numeric"},
+                locale: "en",
+                tz: "America/New_York"
+            };
+        </script>
+
+        <title>Web Development - CS50's Understanding Technology</title>
+
+
+    <style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style></head>
+
+    <body class="">
+
+        <div class="alert fixed-top mb-0 rounded-0 shadow alert-success alert-dismissible" data-alert="success dismissible" data-hash="48bf86bb94fbe6a1549c8a216ccbf4c8" id="alert" role="alert">
+            <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button><style>
+    .alert.fixed-top {
+        border: 0 !important;
+        color: #fff;
+        padding: 0 !important;
+        text-align: center;
+    }
+    .alert.fixed-top .btn-close {
+        filter: invert(.75);
+        font-size: .6rem;
+        padding-top: 0;
+    }
+</style>
+
+<div style="background-color: #005bbb; height: 29px;">
+<a class="d-block h-100 alert-link" href="https://www.npr.org/2022/02/25/1082992947/ukraine-support-help" style="color: #fff">
+<i class="fas fa-info-circle" style="margin-top: .33rem"></i>
+</a>
+</div>
+<div style="background-color: #ffd500; height: 29px;">
+<a class="d-block h-100 alert-link" href="https://www.npr.org/2022/02/25/1082992947/ukraine-support-help"></a>
+</div></div>
+        
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <aside class="col-md" style="height: 717px; top: 58px;">
+ 
+                    <header><h1 data-id="cs50sunderstanding-technology"><a href="https://cs50.harvard.edu/technology/2017/">CS50’s<br>Understanding Technology</a></h1>
+
+<p>OpenCourseWare</p>
+
+<p><a class="pr-1 small" href="https://cs50.harvard.edu/donate">Donate<i aria-hidden="true" class="fas fa-external-link-alt ps-2"></i></a></p>
+
+<p><a href="https://cs.harvard.edu/malan/">David J. Malan</a>
+<br>
+<a href="mailto:malan@harvard.edu">malan@harvard.edu</a>
+<br>
+<a class="mr-1" href="https://www.facebook.com/dmalan"><i aria-hidden="true" class="fab fa-facebook-f" title="Facebook"></i><span class="sr-only">Facebook</span></a>
+<a class="mr-1" href="https://github.com/dmalan"><i aria-hidden="true" class="fab fa-github" title="GitHub"></i><span class="sr-only">GitHub</span></a>
+<a class="mr-1" href="https://www.instagram.com/davidjmalan/"><i aria-hidden="true" class="fab fa-instagram" title="Instagram"></i><span class="sr-only">Instagram</span></a>
+<a class="mr-1" href="https://www.linkedin.com/in/malan/"><i aria-hidden="true" class="fab fa-linkedin" title="LinkedIn"></i><span class="sr-only">LinkedIn</span></a>
+<a class="mr-1" href="https://orcid.org/0000-0001-5338-2522"><i aria-hidden="true" class="fab fa-orcid" title="ORCID"></i><span class="sr-only">ORCID</span></a>
+<a class="mr-1" href="https://www.quora.com/profile/David-J-Malan"><i aria-hidden="true" class="fab fa-quora" title="Quora"></i><span class="sr-only">Quora</span></a>
+<a class="mr-1" href="https://www.reddit.com/user/davidjmalan"><i aria-hidden="true" class="fab fa-reddit-alien" title="Reddit"></i><span class="sr-only">Reddit</span></a>
+<a class="mr-1" href="https://www.tiktok.com/@davidjmalan"><i aria-hidden="true" class="fab fa-tiktok" title="TikTok"></i><span class="sr-only">TikTok</span></a>
+<a class="mr-1" href="https://twitter.com/davidjmalan"><i aria-hidden="true" class="fab fa-twitter" title="Twitter"></i><span class="sr-only">Twitter</span></a></p></header>
+
+                    
+
+                    <button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-md-none" data-bs-target="aside &gt; nav" data-bs-toggle="collapse">
+                        Menu
+                    </button>
+
+                    <nav class="collapse d-md-block" id="nav"><hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/x/movie/">🍿 CS50x Movie Night 2022</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/x/puzzles/"><i class="fas fa-puzzle-piece pe-2"></i>CS50x Puzzle Day 2022</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/x/prepare/"><i class="fas fa-book pe-2"></i>How to Prepare for Technical Interviews</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.ly/zoom"><i class="fas fa-video pe-2"></i>Zoom Meetings</a></li>
+</ul>
+
+<hr>
+
+<ol>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/1/">Hardware</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/2/">Internet</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/3/">Multimedia</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/4/">Security</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/5/">Web Development</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/6/">Programming</a></li>
+</ol>
+
+<hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/technology/2017/honesty/">Academic Honesty</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/technology/2017/certificate/">CS50 Certificate</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/technology/2017/faqs/">FAQs</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.me/cs50t">Gradebook</a></li>
+</ul>
+
+<hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.edx.org/ed">Ed Discussion</a> for Q&amp;A</li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://us.edstem.org/quickstart/ed-discussion.pdf">Quick Start Guide</a></li>
+</ul>
+
+<hr>
+
+<ul class="small fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.edx.org/technology">edX</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.extension.harvard.edu/course-catalog/courses/understanding-technology/15513">Harvard</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://itunes.apple.com/us/course/cs50s-understanding-technology/id1331091914">iTunes U</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.youtube.com/playlist?list=PLhQjrBD2T382p8amnvUp1rws1p7n7gJ2p">YouTube</a></li>
+</ul>
+
+<hr>
+
+<ul class="small fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.noticeable.news/">Changelog</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.statuspage.io/">Status Page</a></li>
+</ul>
+
+<hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/technology/2017/communities/"><strong>Communities</strong></a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.clubhouse.com/club/cs50">Clubhouse</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://discord.gg/cs50">Discord</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.edx.org/ed">Ed</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.facebook.com/groups/cs50/">Facebook Group</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.facebook.com/cs50/">Facebook Page</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://github.com/cs50">GitHub</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://gitter.im/cs50/x">Gitter</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://instagram.com/cs50">Instagram</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.linkedin.com/groups/7437240/">LinkedIn Group</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.linkedin.com/school/CS50/">LinkedIn Page</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.medium.com/">Medium</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.quora.com/topic/CS50">Quora</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.reddit.com/r/cs50/">Reddit</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.edx.org/slack">Slack</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.snapchat.com/add/cs50">Snapchat</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://soundcloud.com/cs50">SoundCloud</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.stackexchange.com/">Stack Exchange</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.tiktok.com/@cs50">TikTok</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://twitter.com/cs50">Twitter</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="http://www.youtube.com/subscription_center?add_user=cs50tv">YouTube</a></li>
+</ul>
+
+<hr>
+
+<p><a href="https://cs50.harvardshop.com/"><img src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/GGMdcKt.png" alt="Harvard Shop"></a></p>
+
+<hr>
+
+<p><a href="https://cs50.harvard.edu/technology/2017/license/" class="small"><i class="fab fa-creative-commons me-1"></i>License</a></p></nav>
+
+                    <footer></footer>
+
+                </aside>
+
+                <main class="col-md" style="margin-bottom: 338px; margin-top: 58px;">
+
+                    <a data-id="" id="web-development" style="top: -58px;"></a><h1><a data-id="" href="#web-development">Web Development</a></h1>
+
+<p>by Spencer Tiberi</p>
+
+<a data-id="" id="internet-recap" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=0m09s">Internet Recap</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>All the computers on the internet are interconnected that supports HTTP and TCP/IP</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The internet is an infrastructure to get data from a server to a client
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Supports emails, video conferencing, etc.</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The web is one specific application or service that runs atop the internet
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Assumes an internet exists to get data from point A to point B
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Layers functionality that allows us to click, browse, etc.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="web-browser" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=1m3s">Web Browser</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Web browsers are found on phones, computers, and game consoles</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>They have a space to enter a URL (Uniform Resource Locator)
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Prefixed by <code class="language-plaintext highlighter-rouge">http://</code> or <code class="language-plaintext highlighter-rouge">https://</code></li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>When typing in a URL, you’re sending a request from your device to some remote server
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The server looks at your request and figures out how to respond</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Like when we previous requested cat images!</li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="web-server" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=2m52s">Web Server</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>A computer that has a CPU, RAM, and a hard drive</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Rack servers
+<img src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/rack.png" alt="Rack Server" width="400">
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Sized so they can be stacked</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Odds are your company has many of these if they have a web server</li>
+</ul>
+
+<a data-id="" id="http" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=4m21s">HTTP</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We send requests to web servers
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Language of these requests is HTTP (Hypertext Transfer Protocol)</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Request:
+<code class="language-plaintext highlighter-rouge">GET /cat.jpg HTTP/1.1</code>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">1.1</code> refers to HTTP language 1.1</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Response by the server:
+<code class="language-plaintext highlighter-rouge">HTTP/1.1 200 OK</code>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This literally means that everything was okay with the request</li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="http-status-codes" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=6m3s">HTTP Status Codes</a></h2>
+
+<div class="bootstrap-table bootstrap5">
+      <div class="fixed-table-toolbar"></div>
+      
+      <div class="fixed-table-container" style="padding-bottom: 0px;">
+      <div class="fixed-table-header" style="display: none;"><table></table></div>
+      <div class="fixed-table-body">
+      <div class="fixed-table-loading table table-bordered table-striped" style="top: 50px;">
+      <span class="loading-wrap">
+      <span class="loading-text">Loading, please wait</span>
+      <span class="animation-wrap"><span class="animation-dot"></span></span>
+      </span>
+    
+      </div>
+      <table class="table table-bordered table-striped">
+  <thead><tr><th style="" data-field="0"><div class="th-inner "><div style="text-align: start">Code</div></div><div class="fht-cell"></div></th><th style="" data-field="1"><div class="th-inner "><div style="text-align: start">Status</div></div><div class="fht-cell"></div></th><th style="" data-field="2"><div class="th-inner "><div style="text-align: start">Meaning</div></div><div class="fht-cell"></div></th></tr></thead>
+  <tbody><tr data-index="0"><td>200</td><td>OK</td><td>Everything is OK</td></tr><tr data-index="1"><td>301</td><td>Moved Permanently</td><td>Browser should redirect to new location</td></tr><tr data-index="2"><td>302</td><td>Found</td><td>Browser should redirect to new location</td></tr><tr data-index="3"><td>304</td><td>Not Modified</td><td>Browser will cache files if things don’t change to save time/bytes from requests</td></tr><tr data-index="4"><td>401</td><td>Unauthorized</td><td>Not authorized to view content; Could require login</td></tr><tr data-index="5"><td>403</td><td>Forbidden</td><td>Not able to view content</td></tr><tr data-index="6"><td>404</td><td>Not Found</td><td>The requested data could not be found because it doesn’t exist on the server</td></tr><tr data-index="7"><td>500</td><td>Internal Service Error</td><td>Not your fault; The server erred</td></tr></tbody>
+</table></div>
+      <div class="fixed-table-footer"></div>
+      </div>
+      <div class="fixed-table-pagination" style="display: none;"></div>
+      </div><div class="clearfix"></div>
+
+<a data-id="" id="html" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=8m37s">HTML</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>In addition to the HTTP headers that include status codes, the bits representing an image or website will be sent to you</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The language that builds websites is HTML (Hypertext Markup Language)
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Sent as a response for a request for a web page</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>HTML isn’t a programming language but rather a markup language
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>
+        <p>Allows you to format, but doesn’t have control flow such as loops and conditions</p>
+
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;hello, world&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        hello, world
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>        </div>
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This is html for a webpage that says “hello, world”</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>To implement webpages, you need to write HTML
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Editors like Atom and Sublime Text exist to help write HTML
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Ultimately, all you need is a computer, a keyboard, and some way of typing out text!</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">&lt;!DOCTYPE html&gt;</code>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Lets the browser know the following file is written in HTML 5</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">&lt;html lang="en"&gt;</code>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Specifies that the webpage is written in English</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">&lt;head&gt;&lt;/head&gt;</code>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Example of open and close tags</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>First tag opened is the last tag closed
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>HTML is a tag-based markup language
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Tags have attributes</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Standard extension for a webpage is .html</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>David clicks the hello.html file and loads the page
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>In the top corner of the browser tab is the title
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This comes from the <code class="language-plaintext highlighter-rouge">head</code></li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The <code class="language-plaintext highlighter-rouge">body</code> contains 99% of the webpage’s content</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This page is a local document, so the address is where David saved it
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Not on a web server, so no one else can access it</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>There are web hosts to serve up websites we write
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can also buy our own domain name</li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="atom" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=19m0s">Atom</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>TextEdit is not designed for web page development</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Free alternatives made for web development exist</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Atom is an example of one of these editors
+<img src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/atom.png" alt="Atom" width="400"></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Fun fact: these notes were indeed created on Atom!</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>In Atom, you can open multiple files at once</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Colors are added for readability
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>These colors don’t effect how the webpage will render</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>HTML supports comments
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>To help colleagues who look at your code know your intentions of the code</li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="links" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=21m17s">Links</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Links can make our pages more dynamic by linking to other pages
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">&lt;a&gt;&lt;/a&gt;</code> are anchor tags that can be used for links</li>
+    </ul>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;link&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        Visit &lt;a href="http://www.harvard.edu/"&gt;Harvard&lt;/a&gt;.
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>    </div>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>href (hyper reference) is set to where you want the link to go</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Blue, underlined text traditionally represents a link on a webpage</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The bottom left corner on Chrome shows the destination of a link when you hover over the text</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>A link traditionally becomes purple if you’ve already followed that link
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Browser remembers where you’ve been
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Potential privacy concern</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="images" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=26m46s">Images</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The web is filled with images</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">&lt;img/&gt;</code> is the image tag</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;image&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;img alt="Grumpy Cat" src="cat.jpg"/&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The <code class="language-plaintext highlighter-rouge">src</code> (source) attribute is set to the address of the file</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The <code class="language-plaintext highlighter-rouge">alt</code> (alternative text) attribute is what displays if the page can’t be seen</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Closes itself as one tag</li>
+</ul>
+
+<a data-id="" id="paragraphs" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=30m42s">Paragraphs</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Even if you add spaces to format paragraphs, HTML will render without them!</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>When
+ looking at your webpage you can “view page source” on your browser to 
+see the original HTML with your spaces, but the webpage still doesn’t 
+have these spaces</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The browser will only do what HTML tells it to do
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The browser needs instructions in the form of HTML tags</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Paragraph tags (<code class="language-plaintext highlighter-rouge">&lt;p&gt;&lt;/p&gt;</code>) tell the browser to create a paragraph of text</li>
+</ul>
+
+<a data-id="" id="headings" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=34m25s">Headings</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">&lt;h1&gt;&lt;/h1&gt;</code> are the heading 1 tags</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>There also exists <code class="language-plaintext highlighter-rouge">&lt;h2&gt;&lt;/h2&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;h3&gt;&lt;/h3&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;h4&gt;&lt;/h4&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;h5&gt;&lt;/h5&gt;</code>, and <code class="language-plaintext highlighter-rouge">&lt;h6&gt;&lt;/h6&gt;</code></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Headings get smaller the larger the number</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>These make the font larger for usage similar to marking chapters in a book</li>
+</ul>
+
+<a data-id="" id="lists" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=35m27s">Lists</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Unordered lists
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Use bullets (like these!)</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">&lt;ul&gt;&lt;/ul&gt;</code></li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">&lt;li&gt;&lt;/li&gt;</code> are list item tags</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;unordered list&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;ul&gt;
+            &lt;li&gt; foo &lt;/li&gt;
+            &lt;li&gt; bar &lt;/li&gt;
+            &lt;li&gt; baz &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+<p><img src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/ul.png" alt="Unordered List" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Ordered lists
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Use numbers</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">&lt;ol&gt;&lt;/ol&gt;</code></li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;ordered list&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;ol&gt;
+            &lt;li&gt;foo&lt;/li&gt;
+            &lt;li&gt;bar&lt;/li&gt;
+            &lt;li&gt;baz&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+<p><img src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/ol.png" alt="Ordered List" width="400"></p>
+
+<a data-id="" id="tables" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=36m49s">Tables</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">&lt;table&gt;&lt;/table&gt;</code> are table tags that create a table
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">&lt;tr&gt;&lt;/tr&gt;</code> are table row tags</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">&lt;td&gt;&lt;/td&gt;</code> are table data tag
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Like columns or cells</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;table&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;table&gt;
+            &lt;tr&gt;
+                &lt;td&gt;7&lt;/td&gt;
+                &lt;td&gt;8&lt;/td&gt;
+                &lt;td&gt;9&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;4&lt;/td&gt;
+                &lt;td&gt;5&lt;/td&gt;
+                &lt;td&gt;6&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;1&lt;/td&gt;
+                &lt;td&gt;2&lt;/td&gt;
+                &lt;td&gt;3&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;*&lt;/td&gt;
+                &lt;td&gt;0&lt;/td&gt;
+                &lt;td&gt;#&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<p><img src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/table.png" alt="Table" width="400"></p>
+
+<a data-id="" id="implementing-google" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=38m52s">Implementing Google</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>When you type google.com your browser adds “https://www.” to the beginning of the URL
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>As is needed to surf the web</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">curl</code> is a command ran in the terminal that behaves much like a browser
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>It sends a request like a browser and shows what html is returned
+<img src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/curl1.png" alt="curl1" width="400">
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Capital letter tags are a bit dated</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Shows google.com is located at http://www.google.com
+<img src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/curl2.png" alt="curl2" width="400"></li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The <code class="language-plaintext highlighter-rouge">-I</code> flag tells <code class="language-plaintext highlighter-rouge">curl</code> to return HTML headers
+            <ul class="fa-ul">
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Includes status codes and other info humans normally don’t see</li>
+            </ul>
+          </li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Google’s server has been configured to redirect users to http://www.google.com</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>UTF-8 is unicode characters</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">curl http://www.google.com</code> returns a webpage that includes HTML and JavaScript
+<img src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/curl3.png" alt="curl3" width="400"></li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Searching for cats changes the URL to https://www.google.com followed by a large sequence of characters
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Distilling this URL to https://www.google.com/search?q=cats leads to the same results
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can “create” a search engine using this info!</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="forms" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=48m2s">Forms</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">&lt;form&gt;&lt;/form&gt;</code> are form tags that take attributes for an action and a method</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;search&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;form action="https://www.google.com/search" method="get"&gt;
+            &lt;input name="q" type="text"/&gt;
+            &lt;input type="submit" text="Search"/&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">action="https://www.google.com/search" method="get"</code> means “get me https://www.google.com/search”</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Inside the form, we can have <code class="language-plaintext highlighter-rouge">&lt;input/&gt;</code> tags
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>These can have name, type, value, and text attributes</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This implementation punts the searching to Google</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The browser uses the HTML form to assemble a URL
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">https://www.google.com/search?q=cats</code></li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">?</code> in the URL means “Hey Server! Here comes my HTTP parameters!”
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>A URL may have multiple parameters separated by <code class="language-plaintext highlighter-rouge">&amp;</code></li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="css0html" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=51m47s">css0.html</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Let’s make our webpages more pretty</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>CSS (Cascading Style Sheets) allows us to style our webpages
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>In contrast, HTML allows us to structure our webpages</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;css0&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;header style="font-size: large; text-align: center;"&gt;
+            John Harvard
+        &lt;/header&gt;
+        &lt;main style="font-size: medium; text-align: center;"&gt;
+            Welcome to my home page!
+        &lt;/main&gt;
+        &lt;footer style="font-size: small; text-align: center;"&gt;
+            Copyright &amp;%169; John Harvard
+        &lt;/footer&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Here, inside <code class="language-plaintext highlighter-rouge">body</code>, we have three tags: <code class="language-plaintext highlighter-rouge">&lt;header&gt;&lt;/header&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;main&gt;&lt;/main&gt;</code>, and <code class="language-plaintext highlighter-rouge">&lt;footer&gt;&lt;/footer&gt;</code>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>They include style attributes written in CSS
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>These are written as key-value pairs</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>In CSS, there is a property called <code class="language-plaintext highlighter-rouge">font-size</code>
+            <ul class="fa-ul">
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>CSS supports <code class="language-plaintext highlighter-rouge">small</code>, <code class="language-plaintext highlighter-rouge">medium</code>, <code class="language-plaintext highlighter-rouge">large</code>, and exact sizes such as <code class="language-plaintext highlighter-rouge">16px</code></li>
+            </ul>
+          </li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">text-align: center;</code> centers the text</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This example has some redundancy</li>
+</ul>
+
+<a data-id="" id="dom" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=55m52s">DOM</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>CSS supports the notion of a hierarchy
+<img src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/dom.png" alt="DOM" width="400">
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Rectangles here represent HTML tags or elements</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Ovals represent text values</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This is called a tree in Computer Science, much like a family tree</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>When a browser receives a webpage, it builds a tree-like data structure in your computer’s RAM</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Thus, in this case <code class="language-plaintext highlighter-rouge">header</code>, <code class="language-plaintext highlighter-rouge">main</code>, and <code class="language-plaintext highlighter-rouge">footer</code> are all child nodes of of the parent node <code class="language-plaintext highlighter-rouge">body</code></li>
+</ul>
+
+<a data-id="" id="css1html" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=58m48s">css1.html</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can put the <code class="language-plaintext highlighter-rouge">text-align: center;</code> attribute on the <code class="language-plaintext highlighter-rouge">body</code> element so it will pass it on to its children (<code class="language-plaintext highlighter-rouge">header</code>, <code class="language-plaintext highlighter-rouge">main</code>, and <code class="language-plaintext highlighter-rouge">footer</code>)</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;title&gt;css1&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body style="text-align: center;"&gt;
+        &lt;header style="font-size: large;"&gt;
+            John Harvard
+        &lt;/header&gt;
+        &lt;main style="font-size: medium;"&gt;
+            Welcome to my home page!
+        &lt;/main&gt;
+        &lt;footer style="font-size: small;"&gt;
+            Copyright &amp;%169; John Harvard
+        &lt;/footer&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This is better design as we can change all the text alignment at once</li>
+</ul>
+
+<a data-id="" id="css2html" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=1h1m11s">css2.html</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Combining HTML and CSS is generally frowned upon</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Makes it hard to collaborate
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>One person can work on content (HTML)</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The other on style (CSS)</li>
+    </ul>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;style&gt;
+
+            .centered
+            {
+                text-align: center;
+            }
+
+            .large
+            {
+                font-size: large;
+            }
+
+            .medium
+            {
+                font-size: medium;
+            }
+
+            .small
+            {
+                font-size: small;
+            }
+
+        &lt;/style&gt;
+        &lt;title&gt;css2&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body class="centered"&gt;
+        &lt;header class="large"&gt;
+            John Harvard
+        &lt;/header&gt;
+        &lt;main class="medium"&gt;
+            Welcome to my home page!
+        &lt;/main&gt;
+        &lt;footer class="small"&gt;
+            Copyright &amp;%169; John Harvard
+        &lt;/footer&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>    </div>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">&lt;style&gt;</code> can be a tag as well as an attribute</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">.centered</code> defines a class named <code class="language-plaintext highlighter-rouge">centered</code>
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Anything with this class with have the style attribute <code class="language-plaintext highlighter-rouge">text-align: center;</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="css3html" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=1h3m7s">css3.html</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can even get rid of class attributes to further separate style from content</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;style&gt;
+
+            body
+            {
+                text-align: center;
+            }
+
+            header
+            {
+                font-size: large;
+            }
+
+            main
+            {
+                font-size: medium;
+            }
+
+            footer
+            {
+                font-size: small;
+            }
+
+        &lt;/style&gt;
+        &lt;title&gt;css3&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;header&gt;
+            John Harvard
+        &lt;/header&gt;
+        &lt;main&gt;
+            Welcome to my home page!
+        &lt;/main&gt;
+        &lt;footer&gt;
+            Copyright &amp;%169; John Harvard
+        &lt;/footer&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can also give the tags CSS directly</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Will look identical, but better design</li>
+</ul>
+
+<a data-id="" id="css4html" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=1h5m5s">css4.html</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>What if we remove the style altogether and store it elsewhere?</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;link href="css4.css" rel="stylesheet"/&gt;
+        &lt;title&gt;css4&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;header&gt;
+            John Harvard
+        &lt;/header&gt;
+        &lt;main&gt;
+            Welcome to my home page!
+        &lt;/main&gt;
+        &lt;footer&gt;
+            Copyright &amp;%169; John Harvard
+        &lt;/footer&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We have boiled the html down to its essence
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>No usage of style tags</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Note the <code class="language-plaintext highlighter-rouge">&lt;link/&gt;</code> tag with a <code class="language-plaintext highlighter-rouge">href</code> attribute of <code class="language-plaintext highlighter-rouge">css4.css</code> and a <code class="language-plaintext highlighter-rouge">rel</code> (relationship) attribute of <code class="language-plaintext highlighter-rouge">stylesheet</code>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This says “Hey Browser! Please link my stylesheet css4.css to this page!”</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>In the same directory, we will have this stylesheet</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>body
+{
+    text-align: center;
+}
+
+header
+{
+    font-size: large;
+}
+
+main
+{
+    font-size: medium;
+}
+
+footer
+{
+    font-size: small;
+}
+</code></pre></div></div>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We have factored out the style to its own file
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Easier for collaboration and sharing</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Can use on multiple html pages</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Can create different themes</li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="closing-thoughts" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/web_development?t=1h7m24s">Closing Thoughts</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Web development is about writing code
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Specifically, HTML, which builds the structure of a webpage</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>CSS allows us to fine tune the webpage’s aesthetics</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>You can use these building blocks to further learn about web development on your own!</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The underlying concepts are more important than details
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>A webpage is nothing more than a text file written in HTML, CSS, and maybe some JavaScript
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This file can be uploaded to a server to put on the internet
+            <ul class="fa-ul">
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>You can sign up for a web host with data centers</li>
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>All your files will go in a folder on the server so that the webpage can be accessed on the internet</li>
+            </ul>
+          </li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>You can also buy a domain name and configure it to point to the web host</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>These building blocks are what allow you to put your content on the internet!</li>
+</ul>
+
+
+                </main>
+
+            </div>
+
+        </div>
+
+        
+ 
+        <script src="Web%20Development%20-%20CS50's%20Understanding%20Technology_files/page.js"></script>
+
+    
+
+
+<textarea id="BFI_DATA" style="width: 1px; height: 1px; display: none;"></textarea><title> </title><div id="WidgetFloaterPanels" translate="no" style="display: none; text-align: left; direction: ltr; visibility: hidden;" class="LTRStyle"> <div id="WidgetFloater" style="display: none" onmouseover="Microsoft.Translator.OnMouseOverFloater()" onmouseout="Microsoft.Translator.OnMouseOutFloater()"> <div id="WidgetLogoPanel"> <span id="WidgetTranslateWithSpan"><span>TRANSLATE with </span><img id="FloaterLogo"></span> <span id="WidgetCloseButton" title="Exit Translation" onclick="Microsoft.Translator.FloaterOnClose()">x</span></div> <div id="LanguageMenuPanel"> <div class="DDStyle_outer"><input name="LanguageMenu_svid" type="text" id="LanguageMenu_svid" style="display:none;" autocomplete="on" value="en" onclick="this.select()"> <input name="LanguageMenu_textid" type="text" id="LanguageMenu_textid" style="display:none;" autocomplete="on" onclick="this.select()"> <span onselectstart="return false" tabindex="0" class="DDStyle" id="__LanguageMenu_header" onclick="return LanguageMenu &amp;&amp; !LanguageMenu.Show('__LanguageMenu_popup', event);" onkeydown="return LanguageMenu &amp;&amp; !LanguageMenu.Show('__LanguageMenu_popup', event);">English</span> <div style="position:relative;text-align:left;left:0;"><div style="position:absolute;width:;left:0px;"><div class="DDStyle" style="display:none;" id="__LanguageMenu_popup"> <table id="LanguageMenu" border="0"> <tbody><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('ar');" ondragstart="LanguageMenu.ondragstart(event);" href="#ar">Arabic</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('he');" ondragstart="LanguageMenu.ondragstart(event);" href="#he">Hebrew</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('pl');" ondragstart="LanguageMenu.ondragstart(event);" href="#pl">Polish</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('bg');" ondragstart="LanguageMenu.ondragstart(event);" href="#bg">Bulgarian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('hi');" ondragstart="LanguageMenu.ondragstart(event);" href="#hi">Hindi</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('pt');" ondragstart="LanguageMenu.ondragstart(event);" href="#pt">Portuguese</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('ca');" ondragstart="LanguageMenu.ondragstart(event);" href="#ca">Catalan</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('mww');" ondragstart="LanguageMenu.ondragstart(event);" href="#mww">Hmong Daw</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ro');" ondragstart="LanguageMenu.ondragstart(event);" href="#ro">Romanian</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('zh-CHS');" ondragstart="LanguageMenu.ondragstart(event);" href="#zh-CHS">Chinese Simplified</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('hu');" ondragstart="LanguageMenu.ondragstart(event);" href="#hu">Hungarian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ru');" ondragstart="LanguageMenu.ondragstart(event);" href="#ru">Russian</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('zh-CHT');" ondragstart="LanguageMenu.ondragstart(event);" href="#zh-CHT">Chinese Traditional</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('id');" ondragstart="LanguageMenu.ondragstart(event);" href="#id">Indonesian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('sk');" ondragstart="LanguageMenu.ondragstart(event);" href="#sk">Slovak</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('cs');" ondragstart="LanguageMenu.ondragstart(event);" href="#cs">Czech</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('it');" ondragstart="LanguageMenu.ondragstart(event);" href="#it">Italian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('sl');" ondragstart="LanguageMenu.ondragstart(event);" href="#sl">Slovenian</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('da');" ondragstart="LanguageMenu.ondragstart(event);" href="#da">Danish</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ja');" ondragstart="LanguageMenu.ondragstart(event);" href="#ja">Japanese</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('es');" ondragstart="LanguageMenu.ondragstart(event);" href="#es">Spanish</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('nl');" ondragstart="LanguageMenu.ondragstart(event);" href="#nl">Dutch</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('tlh');" ondragstart="LanguageMenu.ondragstart(event);" href="#tlh">Klingon</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('sv');" ondragstart="LanguageMenu.ondragstart(event);" href="#sv">Swedish</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('en');" ondragstart="LanguageMenu.ondragstart(event);" href="#en">English</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ko');" ondragstart="LanguageMenu.ondragstart(event);" href="#ko">Korean</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('th');" ondragstart="LanguageMenu.ondragstart(event);" href="#th">Thai</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('et');" ondragstart="LanguageMenu.ondragstart(event);" href="#et">Estonian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('lv');" ondragstart="LanguageMenu.ondragstart(event);" href="#lv">Latvian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('tr');" ondragstart="LanguageMenu.ondragstart(event);" href="#tr">Turkish</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('fi');" ondragstart="LanguageMenu.ondragstart(event);" href="#fi">Finnish</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('lt');" ondragstart="LanguageMenu.ondragstart(event);" href="#lt">Lithuanian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('uk');" ondragstart="LanguageMenu.ondragstart(event);" href="#uk">Ukrainian</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('fr');" ondragstart="LanguageMenu.ondragstart(event);" href="#fr">French</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ms');" ondragstart="LanguageMenu.ondragstart(event);" href="#ms">Malay</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ur');" ondragstart="LanguageMenu.ondragstart(event);" href="#ur">Urdu</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('de');" ondragstart="LanguageMenu.ondragstart(event);" href="#de">German</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('mt');" ondragstart="LanguageMenu.ondragstart(event);" href="#mt">Maltese</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('vi');" ondragstart="LanguageMenu.ondragstart(event);" href="#vi">Vietnamese</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('el');" ondragstart="LanguageMenu.ondragstart(event);" href="#el">Greek</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('no');" ondragstart="LanguageMenu.ondragstart(event);" href="#no">Norwegian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('cy');" ondragstart="LanguageMenu.ondragstart(event);" href="#cy">Welsh</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('ht');" ondragstart="LanguageMenu.ondragstart(event);" href="#ht">Haitian Creole</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('fa');" ondragstart="LanguageMenu.ondragstart(event);" href="#fa">Persian</a></td><td></td> </tr> </tbody></table> <img alt="" style="height:7px;width:17px;border-width:0px;left:20px;"> </div></div></div></div> <script type="text/javascript"> var LanguageMenu; var LanguageMenu_keys=["ar","bg","ca","zh-CHS","zh-CHT","cs","da","nl","en","et","fi","fr","de","el","ht","he","hi","mww","hu","id","it","ja","tlh","ko","lv","lt","ms","mt","no","fa","pl","pt","ro","ru","sk","sl","es","sv","th","tr","uk","ur","vi","cy"]; var LanguageMenu_values=["Arabic","Bulgarian","Catalan","Chinese Simplified","Chinese Traditional","Czech","Danish","Dutch","English","Estonian","Finnish","French","German","Greek","Haitian Creole","Hebrew","Hindi","Hmong Daw","Hungarian","Indonesian","Italian","Japanese","Klingon","Korean","Latvian","Lithuanian","Malay","Maltese","Norwegian","Persian","Polish","Portuguese","Romanian","Russian","Slovak","Slovenian","Spanish","Swedish","Thai","Turkish","Ukrainian","Urdu","Vietnamese","Welsh"]; var LanguageMenu_callback=function(){ }; var LanguageMenu_popupid='__LanguageMenu_popup'; </script> </div> <div id="CTFLinksPanel"> <span id="ExternalLinksPanel"><a id="HelpLink" title="Help" target="_blank" href="https://go.microsoft.com/?linkid=9722454"> <img id="HelpImg"></a> <a id="EmbedLink" href="javascript:Microsoft.Translator.FloaterShowEmbed()" title="Get this widget for your own site"> <img id="EmbedImg"></a> <a id="ShareLink" title="Share translated page with friends" href="javascript:Microsoft.Translator.FloaterShowSharePanel()"> <img id="ShareImg"></a> </span> </div> <div id="FloaterProgressBar"> <span id="ProgressFill"></span> </div> </div> <div id="WidgetFloaterCollapsed" style="display: none" onmouseover="Microsoft.Translator.OnMouseOverFloater()"> <span>TRANSLATE with </span><img id="CollapsedLogoImg"></div> <div id="FloaterSharePanel" style="display: none"> <div id="ShareTextDiv"> <span id="ShareTextSpan"> COPY THE URL BELOW </span> </div> <div id="ShareTextboxDiv"> <input name="ShareTextbox" type="text" id="ShareTextbox" readonly="readonly" onclick="this.select()"> <!--a id="TwitterLink" title="Share on Twitter"> <img id="TwitterImg" /></a> <a-- id="FacebookLink" title="Share on Facebook"> <img id="FacebookImg" /></a--> <a id="EmailLink" title="Email this translation"> <img id="EmailImg"></a> </div> <div id="ShareFooter"> <span id="ShareHelpSpan"><a id="ShareHelpLink"> <img id="ShareHelpImg"></a></span> <span id="ShareBackSpan"><a id="ShareBack" href="javascript:Microsoft.Translator.FloaterOnShareBackClick()" title="Back To Translation"> Back</a></span> </div> <input name="EmailSubject" type="hidden" id="EmailSubject" value="Check out this page in {0} translated from {1}"> <input name="EmailBody" type="hidden" id="EmailBody" value="Translated: {0}%0d%0aOriginal: {1}%0d%0a%0d%0aAutomatic translation powered by Microsoft® Translator%0d%0ahttp://www.bing.com/translator?ref=MSTWidget"> <input type="hidden" id="ShareHelpText" value="This link allows visitors to launch this page and automatically translate it to {0}."> </div> <div id="FloaterEmbed" style="display: none"> <div id="EmbedTextDiv"> <span id="EmbedTextSpan">EMBED THE SNIPPET BELOW IN YOUR SITE</span> <a id="EmbedHelpLink" title="Copy this code and place it into your HTML."> <img id="EmbedHelpImg"></a> </div> <div id="EmbedTextboxDiv"> <input name="EmbedSnippetTextBox" type="text" id="EmbedSnippetTextBox" readonly="readonly" value="&lt;div id='MicrosoftTranslatorWidget' class='Dark' style='color:white;background-color:#555555'&gt;&lt;/div&gt;&lt;script type='text/javascript'&gt;setTimeout(function(){var s=document.createElement('script');s.type='text/javascript';s.charset='UTF-8';s.src=((location &amp;&amp; location.href &amp;&amp; location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=ueOIGRSKkd965FeEGM5JtQ**&amp;ctf=true&amp;ui=true&amp;settings=manual&amp;from=en';var p=document.getElementsByTagName('head')[0]||document.documentElement;p.insertBefore(s,p.firstChild); },0);&lt;/script&gt;" onclick="this.select()"> </div> <div id="EmbedNoticeDiv"><span id="EmbedNoticeSpan">Enable collaborative features and customize widget: <a href="http://www.bing.com/widget/translator" target="_blank">Bing Webmaster Portal</a></span></div> <div id="EmbedFooterDiv"><span id="EmbedBackSpan"><a href="javascript:Microsoft.Translator.FloaterOnEmbedBackClick()" title="Back To Translation">Back</a></span></div> </div> <script type="text/javascript"> var intervalId = setInterval(function () { if (MtPopUpList) { LanguageMenu = new MtPopUpList(); var langMenu = document.getElementById(LanguageMenu_popupid); var origLangDiv = document.createElement("div"); origLangDiv.id = "OriginalLanguageDiv"; origLangDiv.innerHTML = "<span id='OriginalTextSpan'>ORIGINAL: </span><span id='OriginalLanguageSpan'></span>"; langMenu.appendChild(origLangDiv); LanguageMenu.Init('LanguageMenu', LanguageMenu_keys, LanguageMenu_values, LanguageMenu_callback, LanguageMenu_popupid); window["LanguageMenu"] = LanguageMenu; clearInterval(intervalId); } }, 1); </script> </div></body></html>

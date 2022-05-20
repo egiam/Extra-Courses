@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html class="wf-ptsans-n7-active wf-ptsans-n4-active wf-active no-touch" data-lt-installed="true" lang="en-us"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width"><meta property="og:description" content="This course is for students who don't (yet) consider themselves computer persons. Designed for students who work with technology every day but don't necessarily understand how it all works underneath the hood or how to solve problems when something goes wrong, this course fills in the gaps, empowering students to use and troubleshoot technology more effectively. Through lectures on hardware, the Internet, multimedia, security, programming, and web development as well as through readings on current events, this course equips students for today's technology and prepares them for tomorrow's as well.">
+
+        <meta property="og:image" content="https://img.youtube.com/vi/6mbFO0ZLMW8/maxresdefault.jpg"><meta property="og:title" content="Programming - CS50's Understanding Technology">
+
+        <link href="https://cs50.harvard.edu/technology/2017/favicon.ico?1652713763" rel="icon">
+
+        <!-- https://fonts.google.com/specimen/PT+Sans?query=PT+Sans&selection.family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700 -->
+        <script src="Programming%20-%20CS50's%20Understanding%20Technology_files/webfont.js"></script>
+
+        <!-- https://getbootstrap.com/docs/5.1/getting-started/introduction/ -->
+        <script src="Programming%20-%20CS50's%20Understanding%20Technology_files/jquery.js"></script>
+        <script src="Programming%20-%20CS50's%20Understanding%20Technology_files/bootstrap.js"></script>
+
+        <!-- https://bootstrap-table.com/docs/getting-started/introduction/ -->
+        <link href="Programming%20-%20CS50's%20Understanding%20Technology_files/bootstrap-table.css" rel="stylesheet">
+        <script src="Programming%20-%20CS50's%20Understanding%20Technology_files/bootstrap-table.js"></script>
+        <script src="Programming%20-%20CS50's%20Understanding%20Technology_files/bootstrap-table-mobile.js"></script>
+
+        <!-- https://fontawesome.com/how-to-use/on-the-web/referencing-icons/basic-use -->
+        <link href="Programming%20-%20CS50's%20Understanding%20Technology_files/all.css" rel="stylesheet">
+
+        <!-- https://moment.github.io/luxon/ -->
+        <script src="Programming%20-%20CS50's%20Understanding%20Technology_files/luxon.js"></script>
+
+        <!-- http://docs.mathjax.org/ -->
+        <!-- https://www.jsdelivr.com/package/npm/mathjax?path=es5 -->
+        <!-- http://docs.mathjax.org/en/latest/options/output/chtml.html?highlight=displayAlign#the-configuration-block -->
+        <script>
+            MathJax = {
+               chtml: {
+                    displayAlign: "left"
+                }
+            };
+        </script>
+        <script crossorigin="anonymous" integrity="sha256-z47L98YXVhVIaY0uyDzt675P5Ea+w3RsPh9VD5NuoTY=" src="Programming%20-%20CS50's%20Understanding%20Technology_files/tex-chtml.js"></script><style type="text/css">.CtxtMenu_InfoClose {  top:.2em; right:.2em;}
+.CtxtMenu_InfoContent {  overflow:auto; text-align:left; font-size:80%;  padding:.4em .6em; border:1px inset; margin:1em 0px;  max-height:20em; max-width:30em; background-color:#EEEEEE;  white-space:normal;}
+.CtxtMenu_Info.CtxtMenu_MousePost {outline:none;}
+.CtxtMenu_Info {  position:fixed; left:50%; width:auto; text-align:center;  border:3px outset; padding:1em 2em; background-color:#DDDDDD;  color:black;  cursor:default; font-family:message-box; font-size:120%;  font-style:normal; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 15px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius:15px;               /* Safari and Chrome */  -moz-border-radius:15px;                  /* Firefox */  -khtml-border-radius:15px;                /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */  filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color="gray", Positive="true"); /* IE */}
+</style><style type="text/css">.CtxtMenu_MenuClose {  position:absolute;  cursor:pointer;  display:inline-block;  border:2px solid #AAA;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  font-family: "Courier New", Courier;  font-size:24px;  color:#F0F0F0}
+.CtxtMenu_MenuClose span {  display:block; background-color:#AAA; border:1.5px solid;  border-radius:18px;  -webkit-border-radius: 18px;             /* Safari and Chrome */  -moz-border-radius: 18px;                /* Firefox */  -khtml-border-radius: 18px;              /* Konqueror */  line-height:0;  padding:8px 0 6px     /* may need to be browser-specific */}
+.CtxtMenu_MenuClose:hover {  color:white!important;  border:2px solid #CCC!important}
+.CtxtMenu_MenuClose:hover span {  background-color:#CCC!important}
+.CtxtMenu_MenuClose:hover:focus {  outline:none}
+</style><style type="text/css">.CtxtMenu_Menu {  position:absolute;  background-color:white;  color:black;  width:auto; padding:5px 0px;  border:1px solid #CCCCCC; margin:0; cursor:default;  font: menu; text-align:left; text-indent:0; text-transform:none;  line-height:normal; letter-spacing:normal; word-spacing:normal;  word-wrap:normal; white-space:nowrap; float:none; z-index:201;  border-radius: 5px;                     /* Opera 10.5 and IE9 */  -webkit-border-radius: 5px;             /* Safari and Chrome */  -moz-border-radius: 5px;                /* Firefox */  -khtml-border-radius: 5px;              /* Konqueror */  box-shadow:0px 10px 20px #808080;         /* Opera 10.5 and IE9 */  -webkit-box-shadow:0px 10px 20px #808080; /* Safari 3 & Chrome */  -moz-box-shadow:0px 10px 20px #808080;    /* Forefox 3.5 */  -khtml-box-shadow:0px 10px 20px #808080;  /* Konqueror */}
+.CtxtMenu_MenuItem {  padding: 1px 2em;  background:transparent;}
+.CtxtMenu_MenuArrow {  position:absolute; right:.5em; padding-top:.25em; color:#666666;  font-family: null; font-size: .75em}
+.CtxtMenu_MenuActive .CtxtMenu_MenuArrow {color:white}
+.CtxtMenu_MenuArrow.CtxtMenu_RTL {left:.5em; right:auto}
+.CtxtMenu_MenuCheck {  position:absolute; left:.7em;  font-family: null}
+.CtxtMenu_MenuCheck.CtxtMenu_RTL { right:.7em; left:auto }
+.CtxtMenu_MenuRadioCheck {  position:absolute; left: .7em;}
+.CtxtMenu_MenuRadioCheck.CtxtMenu_RTL {  right: .7em; left:auto}
+.CtxtMenu_MenuInputBox {  padding-left: 1em; right:.5em; color:#666666;  font-family: null;}
+.CtxtMenu_MenuInputBox.CtxtMenu_RTL {  left: .1em;}
+.CtxtMenu_MenuComboBox {  left:.1em; padding-bottom:.5em;}
+.CtxtMenu_MenuSlider {  left: .1em;}
+.CtxtMenu_SliderValue {  position:absolute; right:.1em; padding-top:.25em; color:#333333;  font-size: .75em}
+.CtxtMenu_SliderBar {  outline: none; background: #d3d3d3}
+.CtxtMenu_MenuLabel {  padding: 1px 2em 3px 1.33em;  font-style:italic}
+.CtxtMenu_MenuRule {  border-top: 1px solid #DDDDDD;  margin: 4px 3px;}
+.CtxtMenu_MenuDisabled {  color:GrayText}
+.CtxtMenu_MenuActive {  background-color: #606872;  color: white;}
+.CtxtMenu_MenuDisabled:focus {  background-color: #E8E8E8}
+.CtxtMenu_MenuLabel:focus {  background-color: #E8E8E8}
+.CtxtMenu_ContextMenu:focus {  outline:none}
+.CtxtMenu_ContextMenu .CtxtMenu_MenuItem:focus {  outline:none}
+.CtxtMenu_SelectionMenu {  position:relative; float:left;  border-bottom: none; -webkit-box-shadow:none; -webkit-border-radius:0px; }
+.CtxtMenu_SelectionItem {  padding-right: 1em;}
+.CtxtMenu_Selection {  right: 40%; width:50%; }
+.CtxtMenu_SelectionBox {  padding: 0em; max-height:20em; max-width: none;  background-color:#FFFFFF;}
+.CtxtMenu_SelectionDivider {  clear: both; border-top: 2px solid #000000;}
+.CtxtMenu_Menu .CtxtMenu_MenuClose {  top:-10px; left:-10px}
+</style>
+
+        <!-- https://github.com/verlok/vanilla-lazyload -->
+        <script crossorigin="anonymous" integrity="sha256-33xL9TzrOxUWT7HDl78oQFuiZ+xWQyfaTgZ57S9PCDA=" src="Programming%20-%20CS50's%20Understanding%20Technology_files/intersection-observer.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-lY+AkDw7AKVByP4f3k3+iMPEtartTnSX0v3SJi80F9o=" src="Programming%20-%20CS50's%20Understanding%20Technology_files/lazyload.js"></script>
+
+        <!-- https://github.com/davidjbradshaw/iframe-resizer -->
+        <!-- https://www.jsdelivr.com/package/npm/iframe-resizer?path=js -->
+        <script crossorigin="anonymous" integrity="sha256-oBWDuxBG1C5U0t3xjmZZ1UAlt9sKeSRk26KiVy4jxpY=" src="Programming%20-%20CS50's%20Understanding%20Technology_files/iframeResizer.js"></script>
+
+        <!-- https://github.com/scratchblocks/scratchblocks/releases -->
+        <script src="Programming%20-%20CS50's%20Understanding%20Technology_files/scratchblocks.js"></script><style><![CDATA[.sb-label{font-family:Lucida Grande,Verdana,Arial,DejaVu Sans,sans-serif;font-weight:700;fill:#fff;font-size:10px;word-spacing:1px}.sb-obsolete{fill:#d42828}.sb-motion{fill:#4a6cd4}.sb-looks{fill:#8a55d7}.sb-sound{fill:#bb42c3}.sb-pen{fill:#0e9a6c}.sb-events{fill:#c88330}.sb-control{fill:#e1a91a}.sb-sensing{fill:#2ca5e2}.sb-operators{fill:#5cb712}.sb-variables{fill:#ee7d16}.sb-list{fill:#cc5b22}.sb-custom{fill:#632d99}.sb-custom-arg{fill:#5947b1}.sb-extension{fill:#4b4a60}.sb-grey{fill:#969696}.sb-bevel{filter:url(#bevelFilter)}.sb-input{filter:url(#inputBevelFilter)}.sb-input-number,.sb-input-number-dropdown,.sb-input-string{fill:#fff}.sb-literal-dropdown,.sb-literal-number,.sb-literal-number-dropdown,.sb-literal-string{font-weight:400;font-size:9px;word-spacing:0}.sb-literal-number,.sb-literal-number-dropdown,.sb-literal-string{fill:#000}.sb-darker{filter:url(#inputDarkFilter)}.sb-outline{stroke:#fff;stroke-opacity:.2;stroke-width:2;fill:none}.sb-comment,.sb-define-hat-cap{stroke:#632d99;stroke-width:1;fill:#8e2ec2}.sb-comment{fill:#ffffa5;stroke:#d0d1d2}.sb-comment-line{fill:#ffff80}.sb-comment-label{font-family:Helevetica,Arial,DejaVu Sans,sans-serif;font-weight:700;fill:#5c5d5f;word-spacing:0;font-size:12px}.sb-diff{fill:none;stroke:#000}.sb-diff-ins{stroke-width:2px}.sb-diff-del{stroke-width:3px}]]></style><style><![CDATA[.sb3-label{font:500 12pt Helevetica Neue,Helvetica,sans-serif;fill:#fff;word-spacing:1pt}.sb3-motion{fill:#4c97ff;stroke:#3373cc}.sb3-motion-alt{fill:#4280d7}.sb3-motion-dark{fill:#4c97ff}.sb3-looks{fill:#96f;stroke:#774dcb}.sb3-looks-alt{fill:#855cd6}.sb3-looks-dark{fill:#bd42bd}.sb3-sound{fill:#cf63cf;stroke:#bd42bd}.sb3-sound-alt{fill:#c94fc9}.sb3-sound-dark{fill:#bd42bd}.sb3-control{fill:#ffab19;stroke:#cf8b17}.sb3-control-alt{fill:#ec9c13}.sb3-control-dark{fill:#cf8b17}.sb3-events{fill:#ffbf00;stroke:#c90}.sb3-events-alt{fill:#e6ac00}.sb3-events-dark{fill:#c90}.sb3-sensing{fill:#5cb1d6;stroke:#2e8eb8}.sb3-sensing-alt{fill:#47a8d1}.sb3-sensing-dark{fill:#2e8eb8}.sb3-operators{fill:#59c059;stroke:#389438}.sb3-operators-alt{fill:#46b946}.sb3-operators-dark{fill:#389438}.sb3-variables{fill:#ff8c1a;stroke:#db6e00}.sb3-variables-alt{fill:#ff8000}.sb3-variables-dark{fill:#db6e00}.sb3-list{fill:#ff661a;stroke:#e64d00}.sb3-list-alt{fill:#f50}.sb3-list-dark{fill:#e64d00}.sb3-custom{fill:#ff6680;stroke:#f35}.sb3-custom-alt{fill:#ff4d6a}.sb3-custom-dark{fill:#f35}.sb3-custom-arg{fill:#ff6680;stroke:#f35}.sb3-extension{fill:#0fbd8c;stroke:#0b8e69}.sb3-extension-alt{fill:#0da57a}.sb3-extension-line{stroke:#0da57a}.sb3-extension-dark{fill:#0b8e69}.sb3-obsolete{fill:#ed4242;stroke:#ca2b2b}.sb3-obsolete-alt{fill:#db3333}.sb3-obsolete-dark{fill:#ca2b2b}.sb3-grey{fill:#bfbfbf;stroke:#909090}.sb3-grey-alt{fill:#b2b2b2}.sb3-grey-dark{fill:#909090}.sb3-input-color{stroke:#fff}.sb3-input-number,.sb3-input-string{fill:#fff}.sb3-literal-dropdown,.sb3-literal-number,.sb3-literal-number-dropdown,.sb3-literal-string{word-spacing:0}.sb3-literal-number,.sb3-literal-string{fill:#575e75}.sb3-comment{fill:#ffffa5;stroke:#d0d1d2;stroke-width:1}.sb3-comment-line{fill:#ffff80}.sb3-comment-label{font:400 12pt Helevetica Neue,Helvetica,sans-serif;fill:#000;word-spacing:0}.sb3-diff{fill:none;stroke:#000}.sb3-diff-ins{stroke-width:2px}.sb3-diff-del{stroke-width:3px}]]></style>
+
+        <!-- https://mermaid-js.github.io/ -->
+        <!-- https://www.jsdelivr.com/package/npm/mermaid -->
+        <script crossorigin="anonymous" integrity="sha256-CemUs9ITT7liCZpVMktcEw0BpAOZ1+mujlMB3UyuImU=" src="Programming%20-%20CS50's%20Understanding%20Technology_files/mermaid.js"></script>
+
+        
+
+        <link href="Programming%20-%20CS50's%20Understanding%20Technology_files/page.css" rel="stylesheet">
+        <link rel="stylesheet" href="Programming%20-%20CS50's%20Understanding%20Technology_files/css.css" media="all"><script src="Programming%20-%20CS50's%20Understanding%20Technology_files/jekyll-theme-cs50.js"></script>
+
+        <script>
+            window.CS50 = {
+                local: {"day":"numeric","hour":"numeric","minute":"numeric","month":"long","timeZoneName":"short","weekday":"long","year":"numeric"},
+                locale: "en",
+                tz: "America/New_York"
+            };
+        </script>
+
+        <title>Programming - CS50's Understanding Technology</title>
+
+
+    <style id="MJX-CHTML-styles">
+mjx-container[jax="CHTML"] {
+  line-height: 0;
+}
+
+mjx-container [space="1"] {
+  margin-left: .111em;
+}
+
+mjx-container [space="2"] {
+  margin-left: .167em;
+}
+
+mjx-container [space="3"] {
+  margin-left: .222em;
+}
+
+mjx-container [space="4"] {
+  margin-left: .278em;
+}
+
+mjx-container [space="5"] {
+  margin-left: .333em;
+}
+
+mjx-container [rspace="1"] {
+  margin-right: .111em;
+}
+
+mjx-container [rspace="2"] {
+  margin-right: .167em;
+}
+
+mjx-container [rspace="3"] {
+  margin-right: .222em;
+}
+
+mjx-container [rspace="4"] {
+  margin-right: .278em;
+}
+
+mjx-container [rspace="5"] {
+  margin-right: .333em;
+}
+
+mjx-container [size="s"] {
+  font-size: 70.7%;
+}
+
+mjx-container [size="ss"] {
+  font-size: 50%;
+}
+
+mjx-container [size="Tn"] {
+  font-size: 60%;
+}
+
+mjx-container [size="sm"] {
+  font-size: 85%;
+}
+
+mjx-container [size="lg"] {
+  font-size: 120%;
+}
+
+mjx-container [size="Lg"] {
+  font-size: 144%;
+}
+
+mjx-container [size="LG"] {
+  font-size: 173%;
+}
+
+mjx-container [size="hg"] {
+  font-size: 207%;
+}
+
+mjx-container [size="HG"] {
+  font-size: 249%;
+}
+
+mjx-container [width="full"] {
+  width: 100%;
+}
+
+mjx-box {
+  display: inline-block;
+}
+
+mjx-block {
+  display: block;
+}
+
+mjx-itable {
+  display: inline-table;
+}
+
+mjx-row {
+  display: table-row;
+}
+
+mjx-row > * {
+  display: table-cell;
+}
+
+mjx-mtext {
+  display: inline-block;
+}
+
+mjx-mstyle {
+  display: inline-block;
+}
+
+mjx-merror {
+  display: inline-block;
+  color: red;
+  background-color: yellow;
+}
+
+mjx-mphantom {
+  visibility: hidden;
+}
+
+_::-webkit-full-page-media, _:future, :root mjx-container {
+  will-change: opacity;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px;
+  left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+mjx-assistive-mml[display="block"] {
+  width: 100% !important;
+}
+
+mjx-c::before {
+  display: block;
+  width: 0;
+}
+
+.MJX-TEX {
+  font-family: MJXZERO, MJXTEX;
+}
+
+.TEX-B {
+  font-family: MJXZERO, MJXTEX-B;
+}
+
+.TEX-I {
+  font-family: MJXZERO, MJXTEX-I;
+}
+
+.TEX-MI {
+  font-family: MJXZERO, MJXTEX-MI;
+}
+
+.TEX-BI {
+  font-family: MJXZERO, MJXTEX-BI;
+}
+
+.TEX-S1 {
+  font-family: MJXZERO, MJXTEX-S1;
+}
+
+.TEX-S2 {
+  font-family: MJXZERO, MJXTEX-S2;
+}
+
+.TEX-S3 {
+  font-family: MJXZERO, MJXTEX-S3;
+}
+
+.TEX-S4 {
+  font-family: MJXZERO, MJXTEX-S4;
+}
+
+.TEX-A {
+  font-family: MJXZERO, MJXTEX-A;
+}
+
+.TEX-C {
+  font-family: MJXZERO, MJXTEX-C;
+}
+
+.TEX-CB {
+  font-family: MJXZERO, MJXTEX-CB;
+}
+
+.TEX-FR {
+  font-family: MJXZERO, MJXTEX-FR;
+}
+
+.TEX-FRB {
+  font-family: MJXZERO, MJXTEX-FRB;
+}
+
+.TEX-SS {
+  font-family: MJXZERO, MJXTEX-SS;
+}
+
+.TEX-SSB {
+  font-family: MJXZERO, MJXTEX-SSB;
+}
+
+.TEX-SSI {
+  font-family: MJXZERO, MJXTEX-SSI;
+}
+
+.TEX-SC {
+  font-family: MJXZERO, MJXTEX-SC;
+}
+
+.TEX-T {
+  font-family: MJXZERO, MJXTEX-T;
+}
+
+.TEX-V {
+  font-family: MJXZERO, MJXTEX-V;
+}
+
+.TEX-VB {
+  font-family: MJXZERO, MJXTEX-VB;
+}
+
+mjx-stretchy-v mjx-c, mjx-stretchy-h mjx-c {
+  font-family: MJXZERO, MJXTEX-S1, MJXTEX-S4, MJXTEX, MJXTEX-A ! important;
+}
+
+@font-face /* 0 */ {
+  font-family: MJXZERO;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff") format("woff");
+}
+
+@font-face /* 1 */ {
+  font-family: MJXTEX;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff") format("woff");
+}
+
+@font-face /* 2 */ {
+  font-family: MJXTEX-B;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Main-Bold.woff") format("woff");
+}
+
+@font-face /* 3 */ {
+  font-family: MJXTEX-I;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff") format("woff");
+}
+
+@font-face /* 4 */ {
+  font-family: MJXTEX-MI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Main-Italic.woff") format("woff");
+}
+
+@font-face /* 5 */ {
+  font-family: MJXTEX-BI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Math-BoldItalic.woff") format("woff");
+}
+
+@font-face /* 6 */ {
+  font-family: MJXTEX-S1;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Size1-Regular.woff") format("woff");
+}
+
+@font-face /* 7 */ {
+  font-family: MJXTEX-S2;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Size2-Regular.woff") format("woff");
+}
+
+@font-face /* 8 */ {
+  font-family: MJXTEX-S3;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Size3-Regular.woff") format("woff");
+}
+
+@font-face /* 9 */ {
+  font-family: MJXTEX-S4;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Size4-Regular.woff") format("woff");
+}
+
+@font-face /* 10 */ {
+  font-family: MJXTEX-A;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_AMS-Regular.woff") format("woff");
+}
+
+@font-face /* 11 */ {
+  font-family: MJXTEX-C;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Regular.woff") format("woff");
+}
+
+@font-face /* 12 */ {
+  font-family: MJXTEX-CB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Calligraphic-Bold.woff") format("woff");
+}
+
+@font-face /* 13 */ {
+  font-family: MJXTEX-FR;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Regular.woff") format("woff");
+}
+
+@font-face /* 14 */ {
+  font-family: MJXTEX-FRB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Fraktur-Bold.woff") format("woff");
+}
+
+@font-face /* 15 */ {
+  font-family: MJXTEX-SS;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Regular.woff") format("woff");
+}
+
+@font-face /* 16 */ {
+  font-family: MJXTEX-SSB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Bold.woff") format("woff");
+}
+
+@font-face /* 17 */ {
+  font-family: MJXTEX-SSI;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_SansSerif-Italic.woff") format("woff");
+}
+
+@font-face /* 18 */ {
+  font-family: MJXTEX-SC;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Script-Regular.woff") format("woff");
+}
+
+@font-face /* 19 */ {
+  font-family: MJXTEX-T;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Typewriter-Regular.woff") format("woff");
+}
+
+@font-face /* 20 */ {
+  font-family: MJXTEX-V;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Regular.woff") format("woff");
+}
+
+@font-face /* 21 */ {
+  font-family: MJXTEX-VB;
+  src: url("https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/output/chtml/fonts/woff-v2/MathJax_Vector-Bold.woff") format("woff");
+}
+</style></head>
+
+    <body class="">
+
+        <div class="alert fixed-top mb-0 rounded-0 shadow alert-success alert-dismissible" data-alert="success dismissible" data-hash="48bf86bb94fbe6a1549c8a216ccbf4c8" id="alert" role="alert">
+            <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button><style>
+    .alert.fixed-top {
+        border: 0 !important;
+        color: #fff;
+        padding: 0 !important;
+        text-align: center;
+    }
+    .alert.fixed-top .btn-close {
+        filter: invert(.75);
+        font-size: .6rem;
+        padding-top: 0;
+    }
+</style>
+
+<div style="background-color: #005bbb; height: 29px;">
+<a class="d-block h-100 alert-link" href="https://www.npr.org/2022/02/25/1082992947/ukraine-support-help" style="color: #fff">
+<i class="fas fa-info-circle" style="margin-top: .33rem"></i>
+</a>
+</div>
+<div style="background-color: #ffd500; height: 29px;">
+<a class="d-block h-100 alert-link" href="https://www.npr.org/2022/02/25/1082992947/ukraine-support-help"></a>
+</div></div>
+        
+
+        <div class="container-fluid">
+
+            <div class="row">
+
+                <aside class="col-md" style="height: 717px; top: 58px;">
+ 
+                    <header><h1 data-id="cs50sunderstanding-technology"><a href="https://cs50.harvard.edu/technology/2017/">CS50’s<br>Understanding Technology</a></h1>
+
+<p>OpenCourseWare</p>
+
+<p><a class="pr-1 small" href="https://cs50.harvard.edu/donate">Donate<i aria-hidden="true" class="fas fa-external-link-alt ps-2"></i></a></p>
+
+<p><a href="https://cs.harvard.edu/malan/">David J. Malan</a>
+<br>
+<a href="mailto:malan@harvard.edu">malan@harvard.edu</a>
+<br>
+<a class="mr-1" href="https://www.facebook.com/dmalan"><i aria-hidden="true" class="fab fa-facebook-f" title="Facebook"></i><span class="sr-only">Facebook</span></a>
+<a class="mr-1" href="https://github.com/dmalan"><i aria-hidden="true" class="fab fa-github" title="GitHub"></i><span class="sr-only">GitHub</span></a>
+<a class="mr-1" href="https://www.instagram.com/davidjmalan/"><i aria-hidden="true" class="fab fa-instagram" title="Instagram"></i><span class="sr-only">Instagram</span></a>
+<a class="mr-1" href="https://www.linkedin.com/in/malan/"><i aria-hidden="true" class="fab fa-linkedin" title="LinkedIn"></i><span class="sr-only">LinkedIn</span></a>
+<a class="mr-1" href="https://orcid.org/0000-0001-5338-2522"><i aria-hidden="true" class="fab fa-orcid" title="ORCID"></i><span class="sr-only">ORCID</span></a>
+<a class="mr-1" href="https://www.quora.com/profile/David-J-Malan"><i aria-hidden="true" class="fab fa-quora" title="Quora"></i><span class="sr-only">Quora</span></a>
+<a class="mr-1" href="https://www.reddit.com/user/davidjmalan"><i aria-hidden="true" class="fab fa-reddit-alien" title="Reddit"></i><span class="sr-only">Reddit</span></a>
+<a class="mr-1" href="https://www.tiktok.com/@davidjmalan"><i aria-hidden="true" class="fab fa-tiktok" title="TikTok"></i><span class="sr-only">TikTok</span></a>
+<a class="mr-1" href="https://twitter.com/davidjmalan"><i aria-hidden="true" class="fab fa-twitter" title="Twitter"></i><span class="sr-only">Twitter</span></a></p></header>
+
+                    
+
+                    <button aria-controls="nav" aria-expanded="false" class="btn btn-sm collapsed d-md-none" data-bs-target="aside &gt; nav" data-bs-toggle="collapse">
+                        Menu
+                    </button>
+
+                    <nav class="collapse d-md-block" id="nav"><hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/x/movie/">🍿 CS50x Movie Night 2022</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/x/puzzles/"><i class="fas fa-puzzle-piece pe-2"></i>CS50x Puzzle Day 2022</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/x/prepare/"><i class="fas fa-book pe-2"></i>How to Prepare for Technical Interviews</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.ly/zoom"><i class="fas fa-video pe-2"></i>Zoom Meetings</a></li>
+</ul>
+
+<hr>
+
+<ol>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/1/">Hardware</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/2/">Internet</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/3/">Multimedia</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/4/">Security</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/5/">Web Development</a></li>
+  <li><a href="https://cs50.harvard.edu/technology/2017/weeks/6/">Programming</a></li>
+</ol>
+
+<hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/technology/2017/honesty/">Academic Honesty</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/technology/2017/certificate/">CS50 Certificate</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/technology/2017/faqs/">FAQs</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.me/cs50t">Gradebook</a></li>
+</ul>
+
+<hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.edx.org/ed">Ed Discussion</a> for Q&amp;A</li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://us.edstem.org/quickstart/ed-discussion.pdf">Quick Start Guide</a></li>
+</ul>
+
+<hr>
+
+<ul class="small fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.edx.org/technology">edX</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.extension.harvard.edu/course-catalog/courses/understanding-technology/15513">Harvard</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://itunes.apple.com/us/course/cs50s-understanding-technology/id1331091914">iTunes U</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.youtube.com/playlist?list=PLhQjrBD2T382p8amnvUp1rws1p7n7gJ2p">YouTube</a></li>
+</ul>
+
+<hr>
+
+<ul class="small fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.noticeable.news/">Changelog</a></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.statuspage.io/">Status Page</a></li>
+</ul>
+
+<hr>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.harvard.edu/technology/2017/communities/"><strong>Communities</strong></a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.clubhouse.com/club/cs50">Clubhouse</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://discord.gg/cs50">Discord</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.edx.org/ed">Ed</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.facebook.com/groups/cs50/">Facebook Group</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.facebook.com/cs50/">Facebook Page</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://github.com/cs50">GitHub</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://gitter.im/cs50/x">Gitter</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://instagram.com/cs50">Instagram</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.linkedin.com/groups/7437240/">LinkedIn Group</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.linkedin.com/school/CS50/">LinkedIn Page</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.medium.com/">Medium</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.quora.com/topic/CS50">Quora</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.reddit.com/r/cs50/">Reddit</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.edx.org/slack">Slack</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.snapchat.com/add/cs50">Snapchat</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://soundcloud.com/cs50">SoundCloud</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://cs50.stackexchange.com/">Stack Exchange</a> <span class="badge bg-light ms-1 py-1 rounded-pill text-dark">Q&amp;A</span></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://www.tiktok.com/@cs50">TikTok</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://twitter.com/cs50">Twitter</a></li>
+  <li data-marker="*" class="small"><span class="fa-li"><i class="fas fa-square"></i></span><a href="http://www.youtube.com/subscription_center?add_user=cs50tv">YouTube</a></li>
+</ul>
+
+<hr>
+
+<p><a href="https://cs50.harvardshop.com/"><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/GGMdcKt.png" alt="Harvard Shop"></a></p>
+
+<hr>
+
+<p><a href="https://cs50.harvard.edu/technology/2017/license/" class="small"><i class="fab fa-creative-commons me-1"></i>License</a></p></nav>
+
+                    <footer></footer>
+
+                </aside>
+
+                <main class="col-md" style="margin-bottom: 618px; margin-top: 58px;">
+
+                    <a data-id="" id="programming" style="top: -58px;"></a><h1><a data-id="" href="#programming">Programming</a></h1>
+
+<p>by Spencer Tiberi</p>
+
+<a data-id="" id="introduction" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=0m9s">Introduction</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>David plays a game called Oscartime that was the first Scratch program he created</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Scratch is a graphical programming language created by MIT’s Lifelong Kindergarten Group</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The language not only helps get kids excited about programming, but it’s also very instructive</li>
+</ul>
+
+<a data-id="" id="software" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=1m9s">Software</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Programing is ultimately about making software
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Software is what runs on our hardware
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Could run on a desktop, or phone, etc.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="finding-mike-smith" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=1m44s">Finding Mike Smith</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Code is just a technical implementation of algorithms
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Algorithms are step by step instructions for solving problems</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Consider a phonebook full of thousands of names and phone numbers</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>How do we lookup someone like Mike Smith?
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We could start at the first page, move to the next, and so on until we find him
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This is a correct algorithm, as we will find Mike Smith eventually</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>However, it’s inefficient</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We could start at the first page and count by 2s
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>I would find Mike Smith twice as quickly</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>However, this alone is not correct as we could miss Mike Smith if his name is sandwiched between two pages</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We could fix this by checking the previous page if we go past where Mike Smith should be</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>More likely, we’d probably go to the middle of the phonebook and find ourselves in the “M” section
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>As Smith is after M, he must be in the latter (right) half of the book
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can ignore the other half</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>After removing the other half, we are left with half of the book, representing the same problem we started with fundamentally
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can keep repeating this process until we’re down to one page with Mike’s number on it</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This leverages the fact that the book is sorted alphabetically</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We are deviding and conquering
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>1000 pages → 500 pages → 250 pages → 125 pages…</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="phonebook-algorithm" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=6m1s">Phonebook Algorithm</a></h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 pick up phone book
+2 open to middle of phone book
+3 look at names
+4 if Smith is among names
+5     call Mike
+6 else if Smith is earlier in book
+7     open to middle of left half of book
+8     go back to step 3
+9 else if Smith is later in book
+10    open to middle of right half of book
+11    go back to step 3
+12 else
+13    quit
+</code></pre></div></div>
+
+<a data-id="" id="pseudocode" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=7m40s">Pseudocode</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This example algorithm is code, not written in a programming language, but rather English</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This is called Pseudocode
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Code-like syntax written in English</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Numbered lines to maintain order and reference lines</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">pick up</code>, <code class="language-plaintext highlighter-rouge">open to</code>, <code class="language-plaintext highlighter-rouge">look at</code>, <code class="language-plaintext highlighter-rouge">call</code>, <code class="language-plaintext highlighter-rouge">open</code>, and <code class="language-plaintext highlighter-rouge">go back</code> are functions</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">if</code>, <code class="language-plaintext highlighter-rouge">if else</code>, and <code class="language-plaintext highlighter-rouge">else</code> are conditions</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">Smith is among names</code>, <code class="language-plaintext highlighter-rouge">Smith is earlier in book</code>, and <code class="language-plaintext highlighter-rouge">Smith is later in book</code> are Boolean expressions
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Can be either true or false</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>If these are true, the indented code below is executed</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Both line 8 and 11 say to go back to step 3
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This creates a loop
+            <ul class="fa-ul">
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Doing the sane thing again and again</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="programming-constructs" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=10m45s">Programming Constructs</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>These
+ constructs of loops, Boolean expressions, functions, and conditions as 
+well as others such as variables, threads, events, and more are common 
+across all programming languages</li>
+</ul>
+
+<a data-id="" id="c" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=11m35s">C</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>C is one of the oldest programming languages that someone might still write in</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    printf("hello, world/n");
+}
+</code></pre></div></div>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Some of this syntax may look cryptic, but you can likely guess what it does
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>It prints “hello, world” to the screen</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The other details can be learned
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Just like with written human languages that are foreign, you just haven’t learned the patterns yet</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Many programming languages have similarities, so it becomes easier to learn new ones with knowledge under your belt</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Ultimately, programming is about writhing software to control hardware to solve a problem</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>However, computers only understand binary (0’s and 1’s)
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Source code what we humans write and it can be converted into machine code (0’s and 1’s)
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This is achieved by using a program called a compiler</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This allows a human to write the code and a machine to read and run it</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="c-1" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=16m0s">C++</a></h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;iostream&gt;
+
+int main()
+{
+  std::out &lt;&lt; "hello, world" &lt;&lt; std::endl;
+}
+</code></pre></div></div>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This program written in C++ still prints “hello, world”</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Many programming languages do the same things differently
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can solve the same problem using any different number of languages</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>It could be easier to use one programming language for a specific problem
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Different languages were invented to tackle different kinds of problems</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="python" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=17m26s">Python</a></h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print("hello, world")
+</code></pre></div></div>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Straightforwardly, this prints “hello, world”</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Python is a different type of language as you don’t type source code and manually convert it into machine code
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>A special program called an interpreter converts the source code into an intermediate language called byte code
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Which is not machine code (0’s and 1’s)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2        0 LOAD_GLOBAL           0 (print)
+         3 LOAD_CONST            1 ('hello, world')
+         6 CALL_FUNCTION         1 (1 positional, 0 keyword pair)
+         9 POP_TOP
+        10 LOAD_CONST            0 (None)
+        13 RETURN_VALUE
+</code></pre></div>    </div>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The interpreter reads this one line at a time</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The takeaway from this is that there different ways of doing the same thing in many different languages
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>And languages get used in different ways!</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Sometimes you need to compile code, sometimes you need to interpret code</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>At the end of the day, the consumer interacts with the software in the same way
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>They don’t need to know what language it’s written in as long is it run on their computer
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Programs are often packaged differently for different operating systems</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="other-programming-language" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=20m38s">Other Programming Language</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>
+    <p>Java</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Hello
+{
+    public static void main(String [] args)
+    {
+        System.out.println("hello, world");
+    }
+}
+</code></pre></div>    </div>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>
+    <p>Ruby</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>put "hello, world"
+</code></pre></div>    </div>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>
+    <p>Lisp</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(print "hello, world")
+</code></pre></div>    </div>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>
+    <p>JavaScript</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>console.log("hello, world")
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<a data-id="" id="introducing-scratch" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=21m24s">Introducing Scratch</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Each of these languages have a lot more features, but they have commonalities
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Functions, loops, conditions, Boolean expressions, variables, threads, etc.</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>To focus on these ideas in a graphical manner, we’ll explore Scratch</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>In the earlier Oscartime example, trash was moving down the screen
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>A screen is just a grid of pixels</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>To make animation, we move an image on it slightly
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>If done quickly, it looks like movement</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>To make the trash stop at the bottom of the screen, we use some Boolean expression and condition
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>“If you’re touching the bottom of the screen, stop moving”</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Or “Only if you’re not touching the bottom of the screen, keep moving”</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>When trash is put in the can, the lid lifts and Oscar counts the pieces of trash disposed of
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The sprite for Oscar is using a variable
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Initialized (set initially) to 0</li>
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Increments (adds 1 to the variable) for each piece of trash</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>A condition is also used here
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>“If a piece of trash is added, then increment the variable for trash pieces”</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The music was playing in some kind of loop</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Even
+ though this program is complex enough to take 8 hours to make, it’s 
+ultimately built with the same fundamental building blocks of 
+conditions, loops, etc.</li>
+</ul>
+
+<a data-id="" id="hello-world-in-scratch" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=26m3s">hello, world in Scratch</a></h2>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/helloworldscratch.png" alt="hello, world in Scratch" width="400"></p>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This is how we say “hello, world” in Scratch
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>By default, a graphical cat will preform this code
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Can change the cat into other things</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/scratchfunctions.png" alt="Scratch Function" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This is the function for say</li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/scratchforever.png" alt="Scratch Forever Loop" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This says “hello, world” forever</li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/scratchrepeat.png" alt="Scratch Repeat Loop" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This says “hello, world” 50 times</li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/scratchifelse.png" alt="Scratch If Else" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This is an example of how to specify things conditionally</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Scratch allow you to programing by piecing together puzzle pieces with shapes that imply what to do</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can put an if else inside another if else</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The green blocks are Boolean Expressions</li>
+</ul>
+
+<a data-id="" id="scratch-interface" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=28m51s">Scratch Interface</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Scratch is not only a language but a programming environment as well</li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/scratch.png" alt="Scratch Interface" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>On the left is Scratch the cat in a 2D world with height and width
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Can change background and more sprites to this world</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>In the middle are palettes containing scripts
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Blue are motion blocks</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>In the costumes tab we can change aesthetics</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The sounds tab can introduces sounds and multimedia</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The
+ blank slate on the right is where we can drag and drop the puzzle 
+pieces and connect them in order to instruct Scratch to do things</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><code class="language-plaintext highlighter-rouge">when green flag clicked</code> is equivalent to the start of your program
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The green flag button starts, the red stop sign button ends</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>When we drag blocks together, the edge of the block glows white to signify they connect</li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/scratchconnect.png" alt="Scratch Connect" width="400"></p>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The hello, world Scratch program won’t stop until we click the red stop sign as we never told Scratch to stop in the script</li>
+</ul>
+
+<a data-id="" id="sounds" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=31m32s">Sounds</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can also add sounds</li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/scratchmeow.png" alt="Scratch Sounds" width="400"></p>
+
+<a data-id="" id="loops" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=32m30s">Loops</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>If we want Scratch to do something repeatedly, we can use loops
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Can move the sound into a repeat block
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The containing block will grow to fit
+<img src="Programming%20-%20CS50's%20Understanding%20Technology_files/scratchrepeatmeow.png" alt="Scratch Meow 1" width="400">
+            <ul class="fa-ul">
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This seems to only ply the meow once</li>
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The sound repeats so quickly they overlap
+<img src="Programming%20-%20CS50's%20Understanding%20Technology_files/scratchrepeatmeow2.png" alt="Scratch Meow 2" width="400"></li>
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This one plays the sound until done before the next cycle in the loop</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This processes was an example of a common and frustrating experience when programming: bugs</li>
+</ul>
+
+<a data-id="" id="animation" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=37m25s">Animation</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>I want the cat to move back and forth forever</li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/scratchmove1.png" alt="Scratch Move 1" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This moves the Scratch the cat forward (to the right) until he hits the edge
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>If we drag the cat back, he’ll keep moving forward</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/scratchmove2.png" alt="Scratch Move 2" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Scratch will now rotate 180° if touching the edge of the screen
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>But scratch is flipping upside down (literally rotating 180°)
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Another bug!</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can record custom sounds under the sounds tab and add it</li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/scratchmove3.png" alt="Scratch Move 3" width="400"></p>
+
+<a data-id="" id="breaking-down-problems" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=41m53s">Breaking Down Problems</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Its much easier to write complex programs if you start out by breaking them down into their component parts
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Consider individual milestones for yourself</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Even companies like MS didn’t create Word in a day
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Software developers make one small feature at a time</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Eventually, this becomes millions of lines of code</li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="pet-the-cat" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=43m4s">pet the cat</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Reading and understanding code is another side of software development
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Teams need to do this to collaborate</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/petthecat.png" alt="Pet the Cat" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>When this program starts, nothing happens until the mouse pointer touches the cat, in which the cat meows</li>
+</ul>
+
+<a data-id="" id="dont-pet-the-cat" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=43m4s">don’t pet the cat</a></h2>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/dontpetthecat.png" alt="Don't Pet the Cat" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This script has an <code class="language-plaintext highlighter-rouge">if else</code></li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Will play a lion’s roar if the mouse pointer touches the cat, but will meow and wait 2 seconds if not</li>
+</ul>
+
+<a data-id="" id="counting-sheep" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=46m27s">counting sheep</a></h2>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/countingsheep.png" alt="Counting Sheep" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This first sets a variable called <code class="language-plaintext highlighter-rouge">counter</code> to 0</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>It will forever say counter for 1 second, wait one second, then increment the counter</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Ultimately, this will count forever</li>
+</ul>
+
+<a data-id="" id="cough0" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=48m9s">cough0</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can create our own puzzle pieces
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can do this in most programming languages
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Where we create functions</li>
+        </ul>
+      </li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>In scratch we can utilize the functionality of existing puzzle pieces</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/cough0.png" alt="cough0" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>There is an opportunity for better design here
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>IT looks like we’ve copied and pasted puzzle pieces</li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="cough1" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=49m55s">cough1</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can improve this with loops</li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/cough1.png" alt="cough1" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Better design as we can change what the cat is saying or the wait time in one place</li>
+</ul>
+
+<a data-id="" id="cough2" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=50m31s">cough2</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>What if I just want a puzzle piece to make any sprite cough?
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Gain the ability to share the functionality to use elsewhere</li>
+    </ul>
+
+    <p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/cough2.png" alt="cough2" width="400"></p>
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We’ve defined a new block called <code class="language-plaintext highlighter-rouge">cough</code>
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We repeat <code class="language-plaintext highlighter-rouge">cough</code> 3 times, abstracting away the complexity</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/cough2-1.png" alt="cough2-1" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can go even further by passing in a value to your custom block
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This value is called an argument or parameter
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>For example, the say block takes in an argument of “hello, world” or some other phrase</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Whatever the user passed into <code class="language-plaintext highlighter-rouge">cough</code> will replace n!</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The evolution of this program is an example of what it’s like to program and solve problems
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>There were opportunities to improve from a correct yet poor design</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>To be good at programming is to be able to notice opportunities like this</li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="threads" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=55m21s">Threads</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>In Scratch, we can have multiple sprites, each with their own scripts
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Two things will happen simultaneously, called threads</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/threads.png" alt="Threads" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This program has a cat chasing a bird</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Here’s what guides the bird:
+<img src="Programming%20-%20CS50's%20Understanding%20Technology_files/threadsbird.png" alt="Bird" width="400">
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Location in the world can be addressed with coordinates</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Will keep moving around if not touching the cat</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Here’s what guides the cat:
+<img src="Programming%20-%20CS50's%20Understanding%20Technology_files/threadscat.png" alt="Cat" width="400">
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>The cat will point in a random direction</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Forever checks if touching the bird and moves towards the bird
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>If touching the bird, a lion’s roar will play and the script will stop</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>If we increase the movement speed of the bird to 6 steps, it still gets caught</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>If we increase the movement speed of the cat to 10 steps, the bird stands no chance!</li>
+</ul>
+
+<a data-id="" id="events" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=59m52s">Events</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>A computer can do multiple things at a time due to multithreading
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Now that computers have multiple cores, they can literally do two things at once</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>However,
+ computers are so fast that even if two things are technically not 
+happening at the same time, we can’t notice the difference</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>These threads can also intercommunicate in Scratch with events</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/events1.png" alt="Events 1" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This sprite (an orange puppet) will forever check for the spacebar being pressed
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>If this happens, the sprite will say “Marco!” for 2 seconds and broadcast <code class="language-plaintext highlighter-rouge">event</code>
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Events are messages only the computer can hear
+            <ul class="fa-ul">
+              <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>If another sprite is configured to listed for <code class="language-plaintext highlighter-rouge">event</code> it can respond</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/events2.png" alt="Events 2" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This sprite will say “Polo!” for 2 seconds if it hears <code class="language-plaintext highlighter-rouge">event</code></li>
+</ul>
+
+<p><img src="Programming%20-%20CS50's%20Understanding%20Technology_files/puppets.png" alt="Puppets" width="400"></p>
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>When the green flag is clicked, the orange puppet will wait for the spacebar and then tell the other sprite when to say “Polo!”</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>This idea allows two sprites to interact in such a way that one sprite does something only
+  if the other does something first</li>
+</ul>
+
+<a data-id="" id="closing-thoughts" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=1h3m19s">Closing Thoughts</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Programmers in the real world don’t typically program by dragging and dropping code blocks
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>They write textural lines of code (C, Java, Python, etc.)</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>However, the ideas are fundamentally identical
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Scratch gets rid of the syntactical distractions</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Understanding functions, loops, conditions, variables, etc. provides a fundamental understanding of what it’s like to program</li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We focused on imperative or procedural programming, but other types of programming exist as well
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Object oriented programming</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Functional programming</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Even in all these different ways of programming, we are still utilizing the same basic building blocks we’ve explored in Scratch
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>We can assemble these building blocks to solve problems</li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Oscartime was a complex game
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Zooming in, we see these basic concepts
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Forever loops make the trash fall, an if conditions to raise the lid of the trash, etc.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>There are many more languages out there
+    <ul class="fa-ul">
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span><a href="https://en.wikipedia.org/wiki/List_of_programming_languages">https://en.wikipedia.org/wiki/List_of_programming_languages</a></li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>There tend to be trends in the industry</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>A programmer typically has one or a few languages that the reach for to tackle a problem</li>
+      <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>Good to introduce yourself to new languages
+        <ul class="fa-ul">
+          <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>They are easier to learn than spoken or written languages as the ideas persist</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<a data-id="" id="its-raining-men" style="top: -58px;"></a><h2><a href="https://video.cs50.net/cscie1a/2017/fall/lectures/programming?t=1h6m53s">It’s Raining Men</a></h2>
+
+<ul class="fa-ul">
+  <li data-marker="*"><span class="fa-li"><i class="fas fa-square"></i></span>David closes it all with another Scratch project</li>
+</ul>
+
+
+                </main>
+
+            </div>
+
+        </div>
+
+        
+ 
+        <script src="Programming%20-%20CS50's%20Understanding%20Technology_files/page.js"></script>
+
+    
+
+
+<textarea id="BFI_DATA" style="width: 1px; height: 1px; display: none;"></textarea><title> </title><div id="WidgetFloaterPanels" translate="no" style="display: none; text-align: left; direction: ltr; visibility: hidden;" class="LTRStyle"> <div id="WidgetFloater" style="display: none" onmouseover="Microsoft.Translator.OnMouseOverFloater()" onmouseout="Microsoft.Translator.OnMouseOutFloater()"> <div id="WidgetLogoPanel"> <span id="WidgetTranslateWithSpan"><span>TRANSLATE with </span><img id="FloaterLogo"></span> <span id="WidgetCloseButton" title="Exit Translation" onclick="Microsoft.Translator.FloaterOnClose()">x</span></div> <div id="LanguageMenuPanel"> <div class="DDStyle_outer"><input name="LanguageMenu_svid" type="text" id="LanguageMenu_svid" style="display:none;" autocomplete="on" value="en" onclick="this.select()"> <input name="LanguageMenu_textid" type="text" id="LanguageMenu_textid" style="display:none;" autocomplete="on" onclick="this.select()"> <span onselectstart="return false" tabindex="0" class="DDStyle" id="__LanguageMenu_header" onclick="return LanguageMenu &amp;&amp; !LanguageMenu.Show('__LanguageMenu_popup', event);" onkeydown="return LanguageMenu &amp;&amp; !LanguageMenu.Show('__LanguageMenu_popup', event);">English</span> <div style="position:relative;text-align:left;left:0;"><div style="position:absolute;width:;left:0px;"><div class="DDStyle" style="display:none;" id="__LanguageMenu_popup"> <table id="LanguageMenu" border="0"> <tbody><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('ar');" ondragstart="LanguageMenu.ondragstart(event);" href="#ar">Arabic</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('he');" ondragstart="LanguageMenu.ondragstart(event);" href="#he">Hebrew</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('pl');" ondragstart="LanguageMenu.ondragstart(event);" href="#pl">Polish</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('bg');" ondragstart="LanguageMenu.ondragstart(event);" href="#bg">Bulgarian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('hi');" ondragstart="LanguageMenu.ondragstart(event);" href="#hi">Hindi</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('pt');" ondragstart="LanguageMenu.ondragstart(event);" href="#pt">Portuguese</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('ca');" ondragstart="LanguageMenu.ondragstart(event);" href="#ca">Catalan</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('mww');" ondragstart="LanguageMenu.ondragstart(event);" href="#mww">Hmong Daw</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ro');" ondragstart="LanguageMenu.ondragstart(event);" href="#ro">Romanian</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('zh-CHS');" ondragstart="LanguageMenu.ondragstart(event);" href="#zh-CHS">Chinese Simplified</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('hu');" ondragstart="LanguageMenu.ondragstart(event);" href="#hu">Hungarian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ru');" ondragstart="LanguageMenu.ondragstart(event);" href="#ru">Russian</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('zh-CHT');" ondragstart="LanguageMenu.ondragstart(event);" href="#zh-CHT">Chinese Traditional</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('id');" ondragstart="LanguageMenu.ondragstart(event);" href="#id">Indonesian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('sk');" ondragstart="LanguageMenu.ondragstart(event);" href="#sk">Slovak</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('cs');" ondragstart="LanguageMenu.ondragstart(event);" href="#cs">Czech</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('it');" ondragstart="LanguageMenu.ondragstart(event);" href="#it">Italian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('sl');" ondragstart="LanguageMenu.ondragstart(event);" href="#sl">Slovenian</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('da');" ondragstart="LanguageMenu.ondragstart(event);" href="#da">Danish</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ja');" ondragstart="LanguageMenu.ondragstart(event);" href="#ja">Japanese</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('es');" ondragstart="LanguageMenu.ondragstart(event);" href="#es">Spanish</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('nl');" ondragstart="LanguageMenu.ondragstart(event);" href="#nl">Dutch</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('tlh');" ondragstart="LanguageMenu.ondragstart(event);" href="#tlh">Klingon</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('sv');" ondragstart="LanguageMenu.ondragstart(event);" href="#sv">Swedish</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('en');" ondragstart="LanguageMenu.ondragstart(event);" href="#en">English</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ko');" ondragstart="LanguageMenu.ondragstart(event);" href="#ko">Korean</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('th');" ondragstart="LanguageMenu.ondragstart(event);" href="#th">Thai</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('et');" ondragstart="LanguageMenu.ondragstart(event);" href="#et">Estonian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('lv');" ondragstart="LanguageMenu.ondragstart(event);" href="#lv">Latvian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('tr');" ondragstart="LanguageMenu.ondragstart(event);" href="#tr">Turkish</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('fi');" ondragstart="LanguageMenu.ondragstart(event);" href="#fi">Finnish</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('lt');" ondragstart="LanguageMenu.ondragstart(event);" href="#lt">Lithuanian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('uk');" ondragstart="LanguageMenu.ondragstart(event);" href="#uk">Ukrainian</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('fr');" ondragstart="LanguageMenu.ondragstart(event);" href="#fr">French</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ms');" ondragstart="LanguageMenu.ondragstart(event);" href="#ms">Malay</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('ur');" ondragstart="LanguageMenu.ondragstart(event);" href="#ur">Urdu</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('de');" ondragstart="LanguageMenu.ondragstart(event);" href="#de">German</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('mt');" ondragstart="LanguageMenu.ondragstart(event);" href="#mt">Maltese</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('vi');" ondragstart="LanguageMenu.ondragstart(event);" href="#vi">Vietnamese</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('el');" ondragstart="LanguageMenu.ondragstart(event);" href="#el">Greek</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('no');" ondragstart="LanguageMenu.ondragstart(event);" href="#no">Norwegian</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('cy');" ondragstart="LanguageMenu.ondragstart(event);" href="#cy">Welsh</a></td> </tr><tr> <td><a tabindex="-1" onclick="return LanguageMenu.onclick('ht');" ondragstart="LanguageMenu.ondragstart(event);" href="#ht">Haitian Creole</a></td><td><a tabindex="-1" onclick="return LanguageMenu.onclick('fa');" ondragstart="LanguageMenu.ondragstart(event);" href="#fa">Persian</a></td><td></td> </tr> </tbody></table> <img alt="" style="height:7px;width:17px;border-width:0px;left:20px;"> </div></div></div></div> <script type="text/javascript"> var LanguageMenu; var LanguageMenu_keys=["ar","bg","ca","zh-CHS","zh-CHT","cs","da","nl","en","et","fi","fr","de","el","ht","he","hi","mww","hu","id","it","ja","tlh","ko","lv","lt","ms","mt","no","fa","pl","pt","ro","ru","sk","sl","es","sv","th","tr","uk","ur","vi","cy"]; var LanguageMenu_values=["Arabic","Bulgarian","Catalan","Chinese Simplified","Chinese Traditional","Czech","Danish","Dutch","English","Estonian","Finnish","French","German","Greek","Haitian Creole","Hebrew","Hindi","Hmong Daw","Hungarian","Indonesian","Italian","Japanese","Klingon","Korean","Latvian","Lithuanian","Malay","Maltese","Norwegian","Persian","Polish","Portuguese","Romanian","Russian","Slovak","Slovenian","Spanish","Swedish","Thai","Turkish","Ukrainian","Urdu","Vietnamese","Welsh"]; var LanguageMenu_callback=function(){ }; var LanguageMenu_popupid='__LanguageMenu_popup'; </script> </div> <div id="CTFLinksPanel"> <span id="ExternalLinksPanel"><a id="HelpLink" title="Help" target="_blank" href="https://go.microsoft.com/?linkid=9722454"> <img id="HelpImg"></a> <a id="EmbedLink" href="javascript:Microsoft.Translator.FloaterShowEmbed()" title="Get this widget for your own site"> <img id="EmbedImg"></a> <a id="ShareLink" title="Share translated page with friends" href="javascript:Microsoft.Translator.FloaterShowSharePanel()"> <img id="ShareImg"></a> </span> </div> <div id="FloaterProgressBar"> <span id="ProgressFill"></span> </div> </div> <div id="WidgetFloaterCollapsed" style="display: none" onmouseover="Microsoft.Translator.OnMouseOverFloater()"> <span>TRANSLATE with </span><img id="CollapsedLogoImg"></div> <div id="FloaterSharePanel" style="display: none"> <div id="ShareTextDiv"> <span id="ShareTextSpan"> COPY THE URL BELOW </span> </div> <div id="ShareTextboxDiv"> <input name="ShareTextbox" type="text" id="ShareTextbox" readonly="readonly" onclick="this.select()"> <!--a id="TwitterLink" title="Share on Twitter"> <img id="TwitterImg" /></a> <a-- id="FacebookLink" title="Share on Facebook"> <img id="FacebookImg" /></a--> <a id="EmailLink" title="Email this translation"> <img id="EmailImg"></a> </div> <div id="ShareFooter"> <span id="ShareHelpSpan"><a id="ShareHelpLink"> <img id="ShareHelpImg"></a></span> <span id="ShareBackSpan"><a id="ShareBack" href="javascript:Microsoft.Translator.FloaterOnShareBackClick()" title="Back To Translation"> Back</a></span> </div> <input name="EmailSubject" type="hidden" id="EmailSubject" value="Check out this page in {0} translated from {1}"> <input name="EmailBody" type="hidden" id="EmailBody" value="Translated: {0}%0d%0aOriginal: {1}%0d%0a%0d%0aAutomatic translation powered by Microsoft® Translator%0d%0ahttp://www.bing.com/translator?ref=MSTWidget"> <input type="hidden" id="ShareHelpText" value="This link allows visitors to launch this page and automatically translate it to {0}."> </div> <div id="FloaterEmbed" style="display: none"> <div id="EmbedTextDiv"> <span id="EmbedTextSpan">EMBED THE SNIPPET BELOW IN YOUR SITE</span> <a id="EmbedHelpLink" title="Copy this code and place it into your HTML."> <img id="EmbedHelpImg"></a> </div> <div id="EmbedTextboxDiv"> <input name="EmbedSnippetTextBox" type="text" id="EmbedSnippetTextBox" readonly="readonly" value="&lt;div id='MicrosoftTranslatorWidget' class='Dark' style='color:white;background-color:#555555'&gt;&lt;/div&gt;&lt;script type='text/javascript'&gt;setTimeout(function(){var s=document.createElement('script');s.type='text/javascript';s.charset='UTF-8';s.src=((location &amp;&amp; location.href &amp;&amp; location.href.indexOf('https') == 0)?'https://ssl.microsofttranslator.com':'http://www.microsofttranslator.com')+'/ajax/v3/WidgetV3.ashx?siteData=ueOIGRSKkd965FeEGM5JtQ**&amp;ctf=true&amp;ui=true&amp;settings=manual&amp;from=en';var p=document.getElementsByTagName('head')[0]||document.documentElement;p.insertBefore(s,p.firstChild); },0);&lt;/script&gt;" onclick="this.select()"> </div> <div id="EmbedNoticeDiv"><span id="EmbedNoticeSpan">Enable collaborative features and customize widget: <a href="http://www.bing.com/widget/translator" target="_blank">Bing Webmaster Portal</a></span></div> <div id="EmbedFooterDiv"><span id="EmbedBackSpan"><a href="javascript:Microsoft.Translator.FloaterOnEmbedBackClick()" title="Back To Translation">Back</a></span></div> </div> <script type="text/javascript"> var intervalId = setInterval(function () { if (MtPopUpList) { LanguageMenu = new MtPopUpList(); var langMenu = document.getElementById(LanguageMenu_popupid); var origLangDiv = document.createElement("div"); origLangDiv.id = "OriginalLanguageDiv"; origLangDiv.innerHTML = "<span id='OriginalTextSpan'>ORIGINAL: </span><span id='OriginalLanguageSpan'></span>"; langMenu.appendChild(origLangDiv); LanguageMenu.Init('LanguageMenu', LanguageMenu_keys, LanguageMenu_values, LanguageMenu_callback, LanguageMenu_popupid); window["LanguageMenu"] = LanguageMenu; clearInterval(intervalId); } }, 1); </script> </div></body></html>
